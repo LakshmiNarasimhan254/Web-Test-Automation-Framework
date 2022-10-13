@@ -2,18 +2,20 @@ package org.mln.testcases;
 
 import org.mln.driver.Driver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 public class BaseTest {
     protected BaseTest() {
            }
 
 
-    @BeforeMethod
+    @BeforeSuite
     public void setUp() throws Exception {
         Driver.initDriver();
     }
-    @AfterMethod
+    @AfterSuite
     public void tearDown() {
         Driver.quitDriver();
 
