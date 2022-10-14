@@ -27,4 +27,8 @@ public class OrangeHRM_LoginPage {
         return new OrangeHRM_HomePage();
     }
 
+    public String getTitle(){
+        return DriverManager.getDriver().getTitle();
+    }
+
 }

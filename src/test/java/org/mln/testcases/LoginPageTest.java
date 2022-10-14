@@ -1,6 +1,7 @@
 package org.mln.testcases;
 
 
+import org.assertj.core.api.Assertions;
 import org.mln.driver.Driver;
 import org.mln.driver.DriverManager;
 import org.mln.pages.OrangeHRM_HomePage;
@@ -18,11 +19,25 @@ public final class LoginPageTest extends BaseTest{
 
     @Test
     public void login(){
-        orangeHRM_homePage= orangeHRM_loginPage.enterUserName("Admin").enterPassword("admin123").clickLogin();
+        String actualTitle = orangeHRM_loginPage
+                                .enterUserName("Admin")
+                                .enterPassword("admin123")
+                                .clickLogin()
+                                .getTitle();
+        Assertions
+                .assertThat(actualTitle)
+                .isEqualTo("OrangeHRM");
     }
     @Test
     public void logout(){
-       orangeHRM_homePage.clickWelcome().clickLogout();
+        String actualTitle = orangeHRM_homePage
+                            .clickWelcome()
+                            .clickLogout()
+                            .getTitle();
+
+       Assertions
+                .assertThat(actualTitle)
+                .isEqualTo("OrangeHRM");
     }
 
 
