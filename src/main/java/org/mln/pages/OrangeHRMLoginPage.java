@@ -3,6 +3,9 @@ package org.mln.pages;
 import org.mln.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class OrangeHRM_LoginPage {
 
@@ -22,9 +25,11 @@ public class OrangeHRM_LoginPage {
         return this;
     }
 
-    public OrangeHRM_HomePage clickLogin(){
+    public OrangeHRMHomePage clickLogin(){
+        new WebDriverWait(DriverManager.getDriver(),10)
+        .until(ExpectedConditions.elementToBeClickable(button_login));
         DriverManager.getDriver().findElement(button_login).sendKeys(Keys.ENTER);
-        return new OrangeHRM_HomePage();
+        return new OrangeHRMHomePage();
     }
 
     public String getTitle(){
