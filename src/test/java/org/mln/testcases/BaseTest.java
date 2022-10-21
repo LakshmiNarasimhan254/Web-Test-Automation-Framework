@@ -10,8 +10,6 @@ import org.testng.annotations.BeforeSuite;
 public class BaseTest {
     protected BaseTest() {
            }
-
-
     @BeforeSuite
     public void setUp() throws Exception {
         Driver.initDriver();
@@ -20,6 +18,5 @@ public class BaseTest {
     public void tearDown() {
         Driver.quitDriver();
     }
-
 
 }

@@ -3,7 +3,7 @@ package org.mln.pages;
 import org.mln.driver.DriverManager;
 import org.openqa.selenium.By;
 
-public class OrangeHRMHomePage {
+public final class OrangeHRMHomePage {
     private  final By linkwelcome = By.xpath("//p[@class ='oxd-userdropdown-name']");
     private  final By linklogout = By.xpath("//a[text()='Logout']");
 

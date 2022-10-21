@@ -1,2 +1,6 @@
-package org.mln.enums;public enum ConfigProperties {
+package org.mln.enums;
+
+public enum ConfigProperties {
+    URL,
+    BROWSER
 }

@@ -2,6 +2,7 @@ package org.mln.util;
 
 
 import org.mln.constants.FrameworkConstants;
+import org.mln.enums.ConfigProperties;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,11 +12,11 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
-public class ReadPropertiesFile {
+public class PropertyUtil {
 
     private static Properties properties = new Properties();
     private static final Map<String,String> CONFIGMAP = new HashMap();
-    private ReadPropertiesFile() {
+    private PropertyUtil() {
     }
 
     static {
@@ -30,10 +31,10 @@ public class ReadPropertiesFile {
             e.printStackTrace();
         }
     }
-        public static String getValue(String key) throws Exception {
-        if (Objects.isNull(CONFIGMAP.get(key)) ||(Objects.isNull(key))) {
+        public static String getValue(ConfigProperties key) throws Exception {
+        if (Objects.isNull(CONFIGMAP.get(key)) ||(Objects.isNull(CONFIGMAP.get(key)))) {
             throw new Exception("Property Named " + key + " is not found.Please check config.properties");
         }
-        return CONFIGMAP.get(key);
+        return CONFIGMAP.get(key.toString().toLowerCase());
     }
 }

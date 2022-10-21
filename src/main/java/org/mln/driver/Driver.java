@@ -1,7 +1,8 @@
 package org.mln.driver;
 
 import org.mln.constants.FrameworkConstants;
-import org.mln.util.ReadPropertiesFile;
+import org.mln.enums.ConfigProperties;
+import org.mln.util.PropertyUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -21,7 +22,7 @@ public final class Driver {
             DriverManager.setDriver(driver);
             DriverManager.getDriver().manage().window().maximize();
             DriverManager.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            DriverManager.getDriver().get(ReadPropertiesFile.getValue("url"));
+            DriverManager.getDriver().get(PropertyUtil.getValue(ConfigProperties.URL));
         }
     }
     public static void quitDriver(){
