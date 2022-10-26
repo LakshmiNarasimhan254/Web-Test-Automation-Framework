@@ -1,6 +1,8 @@
 package org.mln.pages;
 
 import org.mln.driver.DriverManager;
+import org.mln.reports.ExtentReport;
+import org.mln.reports.ExtentReportManager;
 import org.openqa.selenium.By;
 
 public final class OrangeHRMHomePage {
@@ -9,11 +11,13 @@ public final class OrangeHRMHomePage {
 
     public OrangeHRMHomePage clickWelcome(){
         DriverManager.getDriver().findElement(linkwelcome).click();
+        ExtentReportManager.getExtentTest().pass("Welcome Link is clicked successfully");
         return this;
     }
 
     public OrangeHRMLoginPage clickLogout(){
         DriverManager.getDriver().findElement(linklogout).click();
+        ExtentReportManager.getExtentTest().pass("Logout is clicked successfully");
         return new OrangeHRMLoginPage();
     }
 

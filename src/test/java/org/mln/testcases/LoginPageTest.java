@@ -2,9 +2,13 @@ package org.mln.testcases;
 
 
 import org.assertj.core.api.Assertions;
+import org.mln.factory.datafactory.ExcelDataProvider;
 import org.mln.pages.OrangeHRMHomePage;
 import org.mln.pages.OrangeHRMLoginPage;
+import org.mln.reports.ExtentReport;
 import org.testng.annotations.Test;
+
+import java.util.HashMap;
 
 
 public final class LoginPageTest extends BaseTest{
@@ -13,12 +17,13 @@ public final class LoginPageTest extends BaseTest{
     private LoginPageTest() {
     }
 
-    @Test
-    public void login(){
+    @Test(dataProvider = "getExcelData",dataProviderClass = ExcelDataProvider.class)
+    public void login(Integer runCount ,HashMap<String,String>testdata){
+        ExtentReport.createTest("Login_LogoutTest");
 
         orangeHRMhomePage= orangeHRMloginPage
-                                .enterUserName("Admin")
-                                .enterPassword("admin123")
+                                .enterUserName(testdata.get("UserName"))
+                                .enterPassword(testdata.get("Password"))
                                 .clickLogin();
         String actualTitle =orangeHRMhomePage.getTitle();
         Assertions
