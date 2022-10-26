@@ -11,14 +11,13 @@ public final class FrameworkConstants {
     private FrameworkConstants(){}
 
     //getter method
+    public static String getTestResourcePath(){return TESTRESOURCEPATH;}
     public static String getChromedriverPath(){
         return  CHROMEDRIVERPATH;
     }
-    public static String getConfigPath(){
-        return  CONFIGPATH;
-    }
+    public static String getConfigPath(){ return  CONFIGPATH; }
 
-    public static int getExplicitwaittime(){
-    return  EXPLICITWAITTIME;
-    }
+    public static int getExplicitwaittime(){ return  EXPLICITWAITTIME;}
+
+
 }

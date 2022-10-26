@@ -32,7 +32,7 @@ public class PropertyUtil {
         }
     }
         public static String getValue(ConfigProperties key) throws Exception {
-        if (Objects.isNull(CONFIGMAP.get(key)) ||(Objects.isNull(CONFIGMAP.get(key)))) {
+        if (Objects.isNull(CONFIGMAP.get(key.name().toLowerCase())) ||(Objects.isNull(CONFIGMAP.get(key.name().toLowerCase())))) {
             throw new Exception("Property Named " + key + " is not found.Please check config.properties");
         }
         return CONFIGMAP.get(key.toString().toLowerCase());
