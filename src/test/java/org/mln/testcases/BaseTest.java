@@ -9,21 +9,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 
 public class BaseTest {
     protected BaseTest() {}
 
-    @BeforeSuite
-    public void beforeSuite(){
-        ExtentReport.initReports();
-    }
 
-    @AfterSuite
-    public void afterSuite() throws IOException {
-        ExtentReport.flushReports();
-    }
     @BeforeMethod
-    public void setUp() throws Exception {
+    public void setUp(Method method) throws Exception {
         Driver.initDriver();
     }
     @AfterMethod

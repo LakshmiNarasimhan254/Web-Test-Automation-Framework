@@ -19,7 +19,7 @@ public final class LoginPageTest extends BaseTest{
 
     @Test(dataProvider = "getExcelData",dataProviderClass = ExcelDataProvider.class)
     public void login(Integer runCount ,HashMap<String,String>testdata){
-        ExtentReport.createTest("Login_LogoutTest");
+
 
         orangeHRMhomePage= orangeHRMloginPage
                                 .enterUserName(testdata.get("UserName"))

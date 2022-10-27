@@ -8,13 +8,13 @@ public class ExtentReportManager {
     private ExtentReportManager(){}
     private static ThreadLocal<ExtentTest>tl = new ThreadLocal<>();
 
-    public static ExtentTest getExtentTest(){
+    static ExtentTest getExtentTest(){//Made it to Defaul access specifier so that it is private to package
         return tl.get();
     }
-    public static void setExtentTest(ExtentTest extentTest){
+    static void setExtentTest(ExtentTest extentTest){
         tl.set(extentTest);
     }
-    public static void unLoad(){
+    static void unLoad(){
         tl.remove();
     }
 }

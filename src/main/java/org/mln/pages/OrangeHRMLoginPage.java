@@ -1,13 +1,7 @@
 package org.mln.pages;
 
-import org.mln.driver.DriverManager;
 import org.mln.enums.WaitConditions;
-import org.mln.reports.ExtentReport;
-import org.mln.reports.ExtentReportManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class OrangeHRMLoginPage extends BasePage{
 
@@ -16,20 +10,18 @@ public class OrangeHRMLoginPage extends BasePage{
     private final By buttonlogin = By.xpath("//button[text()=' Login ' and @type='submit']");
 
     public OrangeHRMLoginPage enterUserName(String userName){
-        enterText(textboxusername,userName ,WaitConditions.VISIBLE);
-        ExtentReportManager.getExtentTest().pass(userName+" is entered successfully");
-         return this;
+        enterText(textboxusername,userName ,WaitConditions.VISIBLE,"UserName");
+        return this;
     }
 
     public OrangeHRMLoginPage enterPassword(String passWord){
-        enterText(textboxpassword,passWord,WaitConditions.VISIBLE);
-        ExtentReportManager.getExtentTest().pass(passWord+" is entered successfully");
+        enterText(textboxpassword,passWord,WaitConditions.VISIBLE,"Password");
         return this;
     }
 
     public final  OrangeHRMHomePage clickLogin(){
-        click(buttonlogin, WaitConditions.CLICKABLE);
-        ExtentReportManager.getExtentTest().pass("Login button is clicked successfully");
+        click(buttonlogin, WaitConditions.CLICKABLE,"Login Button");
+
         return new OrangeHRMHomePage();
     }
 

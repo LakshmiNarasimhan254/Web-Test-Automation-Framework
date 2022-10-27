@@ -20,7 +20,7 @@ public final class Driver {
             System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromedriverPath());
             driver = new ChromeDriver();
             DriverManager.setDriver(driver);
-           //    DriverManager.getDriver().manage().window().maximize();
+              DriverManager.getDriver().manage().window().maximize();
           //  DriverManager.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             DriverManager.getDriver().get(PropertyUtil.getValue(ConfigProperties.URL));
         }
