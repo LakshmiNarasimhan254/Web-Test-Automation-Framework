@@ -14,7 +14,7 @@ import java.util.Map;
 public class ExcelDataProvider {
 
     private ExcelDataProvider(){}
-    @DataProvider(parallel = false)
+    @DataProvider(parallel = true)
     public static Object[][] getExcelData(Method method) throws IOException {
 
         FileInputStream fileInputStream = new FileInputStream(FrameworkConstants.getTestResourcePath()+"testdata/excel/TestData.xlsx");

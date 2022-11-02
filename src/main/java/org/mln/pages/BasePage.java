@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 public class BasePage {
 
     WebElement webElement = null;
-    protected void click(By by, WaitConditions waitConditions,String elementName) {
+    protected void click(By by, WaitConditions waitConditions,String elementName) throws Exception {
 
         webElement= ExplicitWaitFactory.waitForElement(waitConditions,by);
         webElement.click();
@@ -20,11 +20,11 @@ public class BasePage {
 
     }
 
-    protected void enterText(By by, String txtValue, WaitConditions waitConditions,String elementName) {
+    protected void enterText(By by, String txtValue, WaitConditions waitConditions,String elementName) throws Exception {
         webElement= ExplicitWaitFactory.waitForElement(waitConditions,by);
         webElement.clear();
         webElement.sendKeys(txtValue);
-        ExtentLogger.pass(txtValue +" entered succesfully in " + elementName);
+        ExtentLogger.pass(txtValue +" entered successfully in  " + elementName);
 
     }
 

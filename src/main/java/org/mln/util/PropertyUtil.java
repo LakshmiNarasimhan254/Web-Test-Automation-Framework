@@ -23,7 +23,7 @@ public class PropertyUtil {
         try {
             FileInputStream fileInputStream = new FileInputStream(FrameworkConstants.getConfigPath());
             properties.load(fileInputStream);
-            properties.entrySet().forEach(entry->CONFIGMAP.put(String.valueOf(entry.getKey()),String.valueOf(entry.getValue()).trim()));
+            properties.entrySet().forEach(entry->CONFIGMAP.put(String.valueOf(entry.getKey()).toLowerCase(),String.valueOf(entry.getValue()).trim()));
 
         } catch (FileNotFoundException e1) {
             e1.printStackTrace();

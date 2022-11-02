@@ -5,7 +5,6 @@ import org.assertj.core.api.Assertions;
 import org.mln.factory.datafactory.ExcelDataProvider;
 import org.mln.pages.OrangeHRMHomePage;
 import org.mln.pages.OrangeHRMLoginPage;
-import org.mln.reports.ExtentReport;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -18,7 +17,7 @@ public final class LoginPageTest extends BaseTest{
     }
 
     @Test(dataProvider = "getExcelData",dataProviderClass = ExcelDataProvider.class)
-    public void login(Integer runCount ,HashMap<String,String>testdata){
+    public void login(Integer runCount ,HashMap<String,String>testdata) throws Exception {
 
 
         orangeHRMhomePage= orangeHRMloginPage
@@ -41,7 +40,7 @@ public final class LoginPageTest extends BaseTest{
                 .isEqualTo("OrangeHRM");
     }
     @Test(enabled = false)
-    public void logout(){
+    public void logout() throws Exception {
 
         String actualTitle = orangeHRMhomePage
                             .clickWelcome()

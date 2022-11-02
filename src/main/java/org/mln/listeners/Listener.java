@@ -7,6 +7,7 @@ import org.mln.reports.ExtentReport;
 import org.testng.*;
 
 public class Listener implements ITestListener, ISuiteListener {
+    @SneakyThrows
     @Override
     public void onStart(ISuite suite) {
         ExtentReport.initReports();
@@ -25,19 +26,21 @@ public class Listener implements ITestListener, ISuiteListener {
 
     }
 
+    @SneakyThrows
     @Override
     public void onTestSuccess(ITestResult result) {
-        ExtentLogger.pass(result.getMethod().getMethodName()+ " is  Passed");
+        ExtentLogger.pass(result.getMethod().getMethodName() + " is  Passed");
     }
-
+    @SneakyThrows
     @Override
     public void onTestFailure(ITestResult result) {
-        ExtentLogger.fail(result.getMethod().getMethodName()+ " is  Failed");
+        ExtentLogger.fail(result.getMethod().getMethodName() + " is  Failed");
     }
 
+    @SneakyThrows
     @Override
     public void onTestSkipped(ITestResult result) {
-        ExtentLogger.skip(result.getMethod().getMethodName()+ " is  Skipped");
+        ExtentLogger.skip(result.getMethod().getMethodName() + " is  Skipped");
     }
 
     @Override

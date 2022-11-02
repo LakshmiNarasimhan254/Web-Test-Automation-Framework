@@ -10,12 +10,12 @@ public final class OrangeHRMHomePage extends BasePage {
     private  final By linkwelcome = By.xpath("//p[(text()='Paul Collings')]");
     private  final By linklogout = By.xpath("//a[text()='Logout']");
 
-    public OrangeHRMHomePage clickWelcome(){
+    public OrangeHRMHomePage clickWelcome() throws Exception {
         click(linkwelcome, WaitConditions.PRESENT,"Welcome Link");
         return this;
     }
 
-    public OrangeHRMLoginPage clickLogout(){
+    public OrangeHRMLoginPage clickLogout() throws Exception {
         click(linklogout, WaitConditions.CLICKABLE,"LogOut button");
         return new OrangeHRMLoginPage();
     }

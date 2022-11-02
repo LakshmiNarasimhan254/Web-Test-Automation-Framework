@@ -1,6 +1,12 @@
 package org.mln.enums;
 
 public enum ConfigProperties {
+
+    APPNAME,
     URL,
-    BROWSER
+    BROWSER,
+    OVERRIDEDYNAMICREPORT,
+    PASSEDSTEPSSCREENSHOT,
+    FAILEDSTEPSSCREENSHOT,
+    SKIPPEDSTEPSSCREENSHOT
 }
