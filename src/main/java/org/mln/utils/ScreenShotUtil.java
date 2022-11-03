@@ -1,4 +1,4 @@
-package org.mln.util;
+package org.mln.utils;
 
 import org.mln.driver.DriverManager;
 import org.openqa.selenium.OutputType;

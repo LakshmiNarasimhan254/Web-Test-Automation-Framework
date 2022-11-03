@@ -6,11 +6,10 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.mln.constants.FrameworkConstants;
 import org.mln.enums.ConfigProperties;
-import org.mln.util.PropertyUtil;
+import org.mln.utils.PropertyUtil;
 
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 import java.util.Objects;
 
 public final class ExtentReport {
@@ -21,7 +20,7 @@ public final class ExtentReport {
     public static void initReports() throws Exception {
         if(Objects.isNull(extentReports)) {
             extentReports = new ExtentReports();
-            ExtentSparkReporter extentSparkReporter = new ExtentSparkReporter(FrameworkConstants.getExtentreportpath());
+            ExtentSparkReporter extentSparkReporter = new ExtentSparkReporter(FrameworkConstants.getExtenReportFilePath());
             extentReports.attachReporter(extentSparkReporter);
             extentSparkReporter.config().setTheme(Theme.STANDARD);
             extentSparkReporter.config().setReportName(PropertyUtil.getValue(ConfigProperties.APPNAME));
@@ -33,7 +32,7 @@ public final class ExtentReport {
         if(Objects.nonNull(extentReports)) {
             extentReports.flush();
         }
-           Desktop.getDesktop().browse(new File(FrameworkConstants.getExtentreportpath()).toURI());
+           Desktop.getDesktop().browse(new File(FrameworkConstants.getExtenReportFilePath()).toURI());
     }
     public static void createTest(String testcaseName){
           ExtentReportManager.setExtentTest(extentReports.createTest(testcaseName));

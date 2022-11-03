@@ -1,11 +1,9 @@
 package org.mln.reports;
 
 import com.aventstack.extentreports.MediaEntityBuilder;
-import org.mln.driver.DriverManager;
 import org.mln.enums.ConfigProperties;
-import org.mln.util.PropertyUtil;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import org.mln.utils.PropertyUtil;
+import org.mln.utils.ScreenShotUtil;
 
 public class ExtentLogger {
 
@@ -14,10 +12,10 @@ public class ExtentLogger {
 
     public static void pass(String loggerText) throws Exception {
         if (PropertyUtil.getValue(ConfigProperties.PASSEDSTEPSSCREENSHOT).equalsIgnoreCase("YES")) {
-            System.out.println(PropertyUtil.getValue(ConfigProperties.PASSEDSTEPSSCREENSHOT));
+
             ExtentReportManager.getExtentTest()
                     .pass(loggerText,
-                            MediaEntityBuilder.createScreenCaptureFromBase64String(getBase64Image()).build());
+                            MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenShotUtil.getBase64Image()).build());
         }
         else{
             ExtentReportManager.getExtentTest()
@@ -29,7 +27,7 @@ public class ExtentLogger {
         if (PropertyUtil.getValue(ConfigProperties.FAILEDSTEPSSCREENSHOT).equalsIgnoreCase("YES")) {
             ExtentReportManager.getExtentTest()
                     .fail(loggerText,
-                            MediaEntityBuilder.createScreenCaptureFromBase64String(getBase64Image()).build());
+                            MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenShotUtil.getBase64Image()).build());
         }
         else{
             ExtentReportManager.getExtentTest()
@@ -41,7 +39,7 @@ public class ExtentLogger {
         if (PropertyUtil.getValue(ConfigProperties.SKIPPEDSTEPSSCREENSHOT).equalsIgnoreCase("YES")) {
             ExtentReportManager.getExtentTest()
                     .skip(loggerText,
-                            MediaEntityBuilder.createScreenCaptureFromBase64String(getBase64Image()).build());
+                            MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenShotUtil.getBase64Image()).build());
         }
         else{
             ExtentReportManager.getExtentTest()
@@ -49,8 +47,6 @@ public class ExtentLogger {
         }
     }
 
-    public static String getBase64Image() {
-        return ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BASE64);
-    }
+
 
 }

@@ -6,6 +6,8 @@ import org.mln.reports.ExtentLogger;
 import org.mln.reports.ExtentReport;
 import org.testng.*;
 
+import java.util.Arrays;
+
 public class Listener implements ITestListener, ISuiteListener {
     @SneakyThrows
     @Override
@@ -35,6 +37,7 @@ public class Listener implements ITestListener, ISuiteListener {
     @Override
     public void onTestFailure(ITestResult result) {
         ExtentLogger.fail(result.getMethod().getMethodName() + " is  Failed");
+        ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace()));
     }
 
     @SneakyThrows
