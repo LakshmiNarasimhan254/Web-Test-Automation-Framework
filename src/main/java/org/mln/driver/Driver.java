@@ -2,12 +2,11 @@ package org.mln.driver;
 
 import org.mln.constants.FrameworkConstants;
 import org.mln.enums.ConfigProperties;
-import org.mln.util.PropertyUtil;
+import org.mln.utils.PropertyUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 
 public final class Driver {
 

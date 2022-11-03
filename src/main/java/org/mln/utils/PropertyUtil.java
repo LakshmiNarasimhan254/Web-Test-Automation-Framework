@@ -15,7 +15,7 @@ import java.util.Properties;
 public class PropertyUtil {
 
     private static Properties properties = new Properties();
-    private static final Map<String,String> CONFIGMAP = new HashMap();
+    private static final Map<String,String> CONFIGMAP = new HashMap<>();
     private PropertyUtil() {
     }
 

@@ -1,13 +1,12 @@
 package org.mln.pages;
 
 import org.mln.driver.DriverManager;
-import org.mln.enums.WaitConditions;
-import org.mln.reports.ExtentLogger;
+import org.mln.enums.WaitConditions;;
 
 import org.openqa.selenium.By;
 
 public final class OrangeHRMHomePage extends BasePage {
-    private  final By linkwelcome = By.xpath("//p[(text()='Paul Collings')]");
+    private  final By linkwelcome = By.xpath("//i[@class ='oxd-icon bi-caret-down-fill oxd-userdropdown-icon']");
     private  final By linklogout = By.xpath("//a[text()='Logout']");
 
     public OrangeHRMHomePage clickWelcome() throws Exception {
