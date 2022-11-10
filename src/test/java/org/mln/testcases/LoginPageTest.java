@@ -16,7 +16,7 @@ public final class LoginPageTest extends BaseTest{
     private LoginPageTest() {
     }
 
-    @Test(dataProvider = "getExcelData",dataProviderClass = ExcelDataProvider.class)
+    @Test
     public void login(Integer runCount ,HashMap<String,String>testdata) throws Exception {
 
 

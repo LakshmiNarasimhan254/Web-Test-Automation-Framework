@@ -10,6 +10,12 @@ public final class FrameworkConstants {
     private static final String CONFIGPATH = TESTRESOURCEPATH + "config/config.properties";
     private static final int EXPLICITWAITTIME = 10;
     private static final String EXTENTREPORTFOLDERPATH = System.getProperty("user.dir") + "/extent-reports/";
+
+    private static final String EXCELPATH = TESTRESOURCEPATH+"excel/";
+    private static final String RUNMANAGERPATH =EXCELPATH +"TestInput.xlsx";
+    private static final String RUNMANAGERSHEET = "RunManager";
+    private static final String TESTDATASHEET = "TestData";
+
     private static String extenReportFilePath = "";
 
     //private constructor will prevent in creating an object for this class
@@ -45,6 +51,13 @@ public final class FrameworkConstants {
     public static int getExplicitwaittime() {
         return EXPLICITWAITTIME;
     }
+
+    public static String getExcelpath(){return EXCELPATH;}
+
+    public static String getRunmanagerpath(){return RUNMANAGERPATH;}
+
+    public static String getRunmanagersheet(){return RUNMANAGERSHEET;}
+    public static String getTestdatasheet(){return TESTDATASHEET;}
 }
 
 

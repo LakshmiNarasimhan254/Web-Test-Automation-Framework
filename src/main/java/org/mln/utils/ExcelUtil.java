@@ -9,9 +9,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 
-public class ExcelReaders {
+public class ExcelUtil {
 
-    private ExcelReaders() {
+    private ExcelUtil() {
     }
 
     static FileInputStream fileInputStream;
@@ -19,7 +19,7 @@ public class ExcelReaders {
     static XSSFSheet sheet;
 
 
-    public static List<Map<String, String>> getExcelDataAsMapList(String excelFilePath, String excelSheetName) throws IOException {
+    public static List<Map<String, String>> getExcelRowDataAsMapList(String excelFilePath, String excelSheetName) throws IOException {
         setExcelFile(excelFilePath, excelSheetName);
         int iRowCount = getExcelRowCount();
         List<Map<String, String>> excelData = new ArrayList<>();
@@ -95,15 +95,15 @@ public class ExcelReaders {
         sheet = wb.getSheet(excelSheetName);
     }
 
-    private static int getExcelRowCount() throws IOException {
+    private static int getExcelRowCount()  {
       return sheet.getLastRowNum();
     }
 
-    private static int getExcelColCount() throws IOException {
+    private static int getExcelColCount()  {
          return sheet.getRow(getExcelRowCount()).getLastCellNum();
     }
 
-    private static Map<String, String> getExcelRowAsMap(int excelRow) throws IOException {
+    private static Map<String, String> getExcelRowAsMap(int excelRow)  {
         Map<String, String> excelRowMap = new HashMap<>();
         int iColCount = getExcelColCount();
         for (int iCol = 0; iCol < iColCount; iCol++) {

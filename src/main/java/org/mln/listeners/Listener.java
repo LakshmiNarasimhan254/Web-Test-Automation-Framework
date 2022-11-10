@@ -24,7 +24,7 @@ public class Listener implements ITestListener, ISuiteListener {
     @SneakyThrows
     @Override
     public void onTestStart(ITestResult result) {
-        ExtentReport.createTest(result.getMethod().getMethodName());
+        ExtentReport.createTest(result.getMethod().getMethodName()+ "-" +result.getMethod().getDescription());
 
     }
 
@@ -32,6 +32,7 @@ public class Listener implements ITestListener, ISuiteListener {
     @Override
     public void onTestSuccess(ITestResult result) {
         ExtentLogger.pass(result.getMethod().getMethodName() + " is  Passed");
+
     }
     @SneakyThrows
     @Override
