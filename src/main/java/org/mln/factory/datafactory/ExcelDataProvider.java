@@ -19,7 +19,7 @@ public class ExcelDataProvider {
     }
 
 
-    @DataProvider(parallel = false)
+    @DataProvider(parallel = true)
     public static Object[][] getExcelData(Method method) throws IOException {
         String testName = method.getName();
         if (actualExcelData.isEmpty()) {
