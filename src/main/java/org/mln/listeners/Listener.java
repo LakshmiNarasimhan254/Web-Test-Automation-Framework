@@ -2,6 +2,7 @@ package org.mln.listeners;
 
 import lombok.SneakyThrows;
 
+import org.mln.annotations.TestInfo;
 import org.mln.reports.ExtentLogger;
 import org.mln.reports.ExtentReport;
 import org.testng.*;
@@ -24,8 +25,20 @@ public class Listener implements ITestListener, ISuiteListener {
     @SneakyThrows
     @Override
     public void onTestStart(ITestResult result) {
-        ExtentReport.createTest(result.getMethod().getMethodName()+ "-" +result.getMethod().getDescription());
+        ExtentReport.createTest(result.getMethod().getMethodName());
+        ExtentReport.addAuthor(result
+                                .getMethod()
+                                .getConstructorOrMethod()
+                                .getMethod()
+                                .getAnnotation(TestInfo.class)
+                                .author());
 
+        ExtentReport.addCategory(result
+                .getMethod()
+                .getConstructorOrMethod()
+                .getMethod()
+                .getAnnotation(TestInfo.class)
+                .categories());
     }
 
     @SneakyThrows
