@@ -5,6 +5,7 @@ import org.mln.driver.DriverManager;
 import org.mln.enums.WaitConditions;
 import org.mln.factory.ExplicitWaitFactory;
 import org.mln.reports.ExtentLogger;
+import org.mln.utils.DynamicXPathUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -33,6 +34,8 @@ public class BasePage {
     }
 
 
-
+    protected boolean isElementDisplayed(String xpath){
+        return DriverManager.getDriver().findElement(By.xpath(xpath)).isDisplayed();
+    }
 
 }
