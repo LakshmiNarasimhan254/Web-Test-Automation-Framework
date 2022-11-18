@@ -5,6 +5,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.mln.constants.FrameworkConstants;
+import org.mln.enums.Categories;
 import org.mln.enums.ConfigProperties;
 import org.mln.utils.PropertyUtil;
 
@@ -45,9 +46,9 @@ public final class ExtentReport {
             ExtentReportManager.getExtentTest().assignAuthor(author);
         }
     }
-    public static void addCategory(String[] categories){
-        for(String category:categories){
-            ExtentReportManager.getExtentTest().assignAuthor(category);
+    public static void addCategory(Categories[] categories){
+        for(Enum<Categories> category:categories){
+            ExtentReportManager.getExtentTest().assignCategory(String.valueOf(category));
         }
     }
 }

@@ -2,6 +2,7 @@ package org.mln.testcases;
 
 import org.assertj.core.api.Assertions;
 import org.mln.annotations.TestInfo;
+import org.mln.enums.Categories;
 import org.mln.pages.AmazonComputersTabletsPCProductsPage;
 import org.mln.pages.AmazonHomePage;
 import org.testng.annotations.Test;
@@ -14,7 +15,7 @@ public final class AmazonHomePageTest extends BaseTest{
       AmazonComputersTabletsPCProductsPage amazonComputersTabletsPCProductsPage;
 
       private  AmazonHomePageTest(){}
-    @TestInfo(author = {"Lakshmi Mohan"},categories = {"Regression"})
+    @TestInfo(author = {"Lakshmi Mohan"},categories = {Categories.FUNCTIONAL,Categories.SMOKE})
     @Test
     public void verifyAmazonHamburgerSubMenuPageTitle(Integer runCount , HashMap<String,String> testdata) throws Exception {
         amazonComputersTabletsPCProductsPage =

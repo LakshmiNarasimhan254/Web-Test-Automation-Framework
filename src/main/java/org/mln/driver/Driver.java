@@ -14,21 +14,20 @@ public final class Driver {
 
     private Driver(){
     }
-    private static WebDriver driver;
-    public static void initDriver(String browser) throws Exception {
+    private static WebDriver webDriver;
+    public static void initDriver(String browser){
         if (Objects.isNull(DriverManager.getDriver())) {
             if(browser.equalsIgnoreCase("CHROME")) {
                 System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromedriverPath());
-                driver = new ChromeDriver();
+                webDriver = new ChromeDriver();
             } else if (browser.equalsIgnoreCase("FIREFOX")) {
                 System.setProperty("webdriver.gecko.driver", FrameworkConstants.getGeckodriverpath());
-                driver = new FirefoxDriver();
+                webDriver = new FirefoxDriver();
             }
 
-            DriverManager.setDriver(driver);
-              // DriverManager.getDriver().manage().window().maximize();
-             // DriverManager.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            DriverManager.getDriver().get(PropertyUtil.getValue(ConfigProperties.URL));
+            DriverManager.setDriver(webDriver);
+                DriverManager.getDriver().manage().window().maximize();
+                DriverManager.getDriver().get(PropertyUtil.getValue(ConfigProperties.URL));
 
         }
     }

@@ -35,7 +35,7 @@ public class AmazonHomePage extends BasePage {
 
         if (subMenuName.contains("Tablets")){
             return  new AmazonComputersTabletsPCProductsPage();
-        };
+        }
         return null;
     }
 
