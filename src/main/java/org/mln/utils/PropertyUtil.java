@@ -2,6 +2,10 @@ package org.mln.utils;
 
 
 import org.mln.constants.FrameworkConstants;
+import org.mln.customexceptions.CustomException;
+import org.mln.customexceptions.FileIOException;
+import org.mln.customexceptions.InvalidPathForFileException;
+import org.mln.customexceptions.PropertyFileUsageException;
 import org.mln.enums.ConfigProperties;
 
 import java.io.FileInputStream;
@@ -24,15 +28,15 @@ public class PropertyUtil {
             properties.load(fileInputStream);
             properties.entrySet().forEach(entry->CONFIGMAP.put(String.valueOf(entry.getKey()).toLowerCase(),String.valueOf(entry.getValue()).trim()));
 
-        } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+           e.printStackTrace();
+           System.exit(0);
         }
     }
         public static String getValue(ConfigProperties key)  {
         if (Objects.isNull(CONFIGMAP.get(key.name().toLowerCase())) ||(Objects.isNull(CONFIGMAP.get(key.name().toLowerCase())))) {
-            throw new RuntimeException("Property Named " + key + " is not found.Please check config.properties");
+            throw new PropertyFileUsageException("Property Named " + key + " is not found.Please check in :"+ FrameworkConstants.getConfigPath() +".");
+
         }
         return CONFIGMAP.get(key.toString().toLowerCase());
     }

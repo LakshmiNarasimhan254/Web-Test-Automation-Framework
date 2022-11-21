@@ -23,7 +23,7 @@ public final class FrameworkConstants {
     private FrameworkConstants() {
     }
 
-    public static String getExtenReportFilePath() throws Exception {
+    public static String getExtenReportFilePath() {
         if (PropertyUtil.getValue(ConfigProperties.OVERRIDEDYNAMICREPORT).equalsIgnoreCase("no")) {
             if (extenReportFilePath.isEmpty()) {
                 extenReportFilePath = EXTENTREPORTFOLDERPATH + "index" + System.currentTimeMillis() + ".html";

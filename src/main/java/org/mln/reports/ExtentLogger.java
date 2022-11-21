@@ -10,7 +10,7 @@ public class ExtentLogger {
     private ExtentLogger() {
     }
 
-    public static void pass(String loggerText) throws Exception {
+    public static void pass(String loggerText) {
         if (PropertyUtil.getValue(ConfigProperties.PASSEDSTEPSSCREENSHOT).equalsIgnoreCase("YES")) {
 
             ExtentReportManager.getExtentTest()
@@ -23,7 +23,7 @@ public class ExtentLogger {
         }
     }
 
-    public static void fail(String loggerText) throws Exception {
+    public static void fail(String loggerText) {
         if (PropertyUtil.getValue(ConfigProperties.FAILEDSTEPSSCREENSHOT).equalsIgnoreCase("YES")) {
             ExtentReportManager.getExtentTest()
                     .fail(loggerText,
@@ -35,7 +35,7 @@ public class ExtentLogger {
         }
     }
 
-    public static void skip(String loggerText) throws Exception {
+    public static void skip(String loggerText){
         if (PropertyUtil.getValue(ConfigProperties.SKIPPEDSTEPSSCREENSHOT).equalsIgnoreCase("YES")) {
             ExtentReportManager.getExtentTest()
                     .skip(loggerText,

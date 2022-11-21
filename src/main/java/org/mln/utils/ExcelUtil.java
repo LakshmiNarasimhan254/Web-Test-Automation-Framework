@@ -4,6 +4,9 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.mln.customexceptions.CustomException;
+import org.mln.customexceptions.FileIOException;
+import org.mln.customexceptions.InvalidPathForFileException;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -26,11 +29,12 @@ public class ExcelUtil {
             for (int iRow = 1; iRow <= iRowCount; iRow++) {
                 excelData.add(getExcelRowAsMap(sheet, iRow));
             }
-        }catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            throw new InvalidPathForFileException(excelFilePath+"/"+excelSheetName);
+        } catch (IOException e) {
+            throw new FileIOException(excelFilePath+"/"+excelSheetName);
+        } catch (Exception e) {
+            throw new CustomException(e.getMessage());
         }
         return excelData;
     }
@@ -59,11 +63,12 @@ public class ExcelUtil {
                 }
                 iRowNo++;
             }
-        }catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            throw new InvalidPathForFileException(excelFilePath+"/"+excelSheetName);
+        } catch (IOException e) {
+            throw new FileIOException(excelFilePath+"/"+excelSheetName);
+        } catch (Exception e) {
+            throw new CustomException(e.getMessage());
         }
         return excelData;
 
@@ -84,11 +89,12 @@ public class ExcelUtil {
 
                 }
             }
-        }catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            throw new InvalidPathForFileException(excelFilePath+"/"+excelSheetName);
+        } catch (IOException e) {
+            throw new FileIOException(excelFilePath+"/"+excelSheetName);
+        } catch (Exception e) {
+            throw new CustomException(e.getMessage());
         }
         return excelData;
 
@@ -104,13 +110,14 @@ public class ExcelUtil {
             for (int iRow = 1; iRow <= iRowCount; iRow++) {
 
                 excelData[iRow - 1][0] = iRow;
-                excelData[iRow - 1][1] = getExcelRowAsMap(sheet,iRow);
+                excelData[iRow - 1][1] = getExcelRowAsMap(sheet, iRow);
             }
-        }catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            throw new InvalidPathForFileException(excelFilePath+"/"+excelSheetName, " File is not found in");
+        } catch (IOException e) {
+            throw new FileIOException(excelFilePath+"/"+excelSheetName, " File IO Exception occurred");
+        } catch (Exception e) {
+            throw new CustomException(e.getMessage());
         }
 
         return excelData;

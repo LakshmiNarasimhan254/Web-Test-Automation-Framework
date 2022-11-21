@@ -5,12 +5,17 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.mln.constants.FrameworkConstants;
+import org.mln.customexceptions.CustomException;
+import org.mln.customexceptions.FileIOException;
+import org.mln.customexceptions.InvalidPathForFileException;
 import org.mln.enums.Categories;
 import org.mln.enums.ConfigProperties;
 import org.mln.utils.PropertyUtil;
 
 import java.awt.*;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Objects;
 
 public final class ExtentReport {
@@ -18,7 +23,7 @@ public final class ExtentReport {
     }
     private static ExtentReports extentReports;
 
-    public static void initReports() throws Exception {
+    public static void initReports()  {
         if(Objects.isNull(extentReports)) {
             extentReports = new ExtentReports();
             ExtentSparkReporter extentSparkReporter = new ExtentSparkReporter(FrameworkConstants.getExtenReportFilePath());
@@ -29,12 +34,20 @@ public final class ExtentReport {
         }
     }
 
-    public static void flushReports() throws Exception {
+    public static void flushReports() {
         if(Objects.nonNull(extentReports)) {
             extentReports.flush();
         }
            ExtentReportManager.unLoad();
-           Desktop.getDesktop().browse(new File(FrameworkConstants.getExtenReportFilePath()).toURI());
+
+        try {
+            Desktop.getDesktop().browse(new File(FrameworkConstants.getExtenReportFilePath()).toURI());
+        } catch (IOException e) {
+            // Did not handle using try catch because , don't want to stop the program because it is just opening the report
+            e.printStackTrace();
+        }
+
+
     }
     public static void createTest(String testcaseName){
           ExtentReportManager.setExtentTest(extentReports.createTest(testcaseName));
