@@ -4,6 +4,9 @@ package org.mln.constants;
 import org.mln.enums.ConfigProperties;
 import org.mln.utils.PropertyUtil;
 
+/**
+ * This class contains all the constants that are used in the framework
+ */
 public final class FrameworkConstants {
     private static final String TESTRESOURCEPATH = System.getProperty("user.dir") + "/src/test/resources/";
     private static final String CHROMEDRIVERPATH = TESTRESOURCEPATH + "executables/chromedriver.exe";

@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Map;
 
 
+/**
+ * It reads the excel data and returns the data as a 2D object array
+ */
 public class ExcelDataProvider {
     private static List<Map<String, String>> actualExcelData = new ArrayList<>();
 
@@ -20,6 +23,7 @@ public class ExcelDataProvider {
 
 
     @DataProvider(parallel = true)
+    // A method which is returning the data as a 2D object array.
     public static Object[][] getExcelData(Method method)  {
         String testName = method.getName();
         if (actualExcelData.isEmpty()) {

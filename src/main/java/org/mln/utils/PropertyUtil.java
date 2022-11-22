@@ -16,6 +16,9 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
+/**
+ * It loads the properties file and stores it in a map
+ */
 public class PropertyUtil {
 
     private  static final Properties properties = new Properties();
@@ -33,6 +36,12 @@ public class PropertyUtil {
            System.exit(0);
         }
     }
+        /**
+         * It takes a key as an argument and returns the value of the key from the config file
+         *
+         * @param key The key of the property file.
+         * @return The value of the key in the config file.
+         */
         public static String getValue(ConfigProperties key)  {
         if (Objects.isNull(CONFIGMAP.get(key.name().toLowerCase())) ||(Objects.isNull(CONFIGMAP.get(key.name().toLowerCase())))) {
             throw new PropertyFileUsageException("Property Named " + key + " is not found.Please check in :"+ FrameworkConstants.getConfigPath() +".");

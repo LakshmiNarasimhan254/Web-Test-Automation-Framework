@@ -8,11 +8,22 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+/**
+ * This class is used to wait for an element to be clickable, present, visible or none
+ */
 public class ExplicitWaitFactory {
 
     private ExplicitWaitFactory(){
     }
 
+    /**
+     * It waits for the element to be clickable, present, visible or none (no wait) based on the wait condition passed as a
+     * parameter
+     *
+     * @param waitConditions This is an enum that has the following values:
+     * @param by The locator of the element.
+     * @return WebElement
+     */
     public static WebElement waitForElement(WaitConditions waitConditions, By by) {
         WebElement webElement =null;
         if (waitConditions.toString().equalsIgnoreCase("CLICKABLE")) {

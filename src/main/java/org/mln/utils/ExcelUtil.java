@@ -19,6 +19,13 @@ public class ExcelUtil {
     }
 
 
+    /**
+     * It reads the excel file and returns a list of maps, where each map represents a row in the excel sheet
+     *
+     * @param excelFilePath The path of the excel file.
+     * @param excelSheetName The name of the sheet in the excel file.
+     * @return A list of maps.
+     */
     public static List<Map<String, String>> getExcelRowDataAsMapList(String excelFilePath, String excelSheetName) {
         List<Map<String, String>> excelData = new ArrayList<>();
         try (FileInputStream fileInputStream = new FileInputStream(excelFilePath)) {

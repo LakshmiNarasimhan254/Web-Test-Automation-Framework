@@ -1,5 +1,8 @@
 package org.mln.customexceptions;
 
+/**
+ * This class is used to throw an exception when the path for a file is invalid
+ */
 public class InvalidPathForFileException extends CustomException{
     public InvalidPathForFileException(String path ,String message) {
         super(message + " :" + path);

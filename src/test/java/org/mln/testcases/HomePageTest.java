@@ -13,6 +13,10 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 
+/**
+ * This class extends the BaseTest class and has a private constructor. It has a test method that validates the title of
+ * the page, the presence of a link and the number of links displayed
+ */
 public class HomePageTest extends BaseTest{
 
 

@@ -18,11 +18,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * This class is used to initialize the ExtentReports object and also to create a test in the report
+ */
 public final class ExtentReport {
     private ExtentReport(){
     }
     private static ExtentReports extentReports;
 
+    /**
+     * This function is used to initialize the ExtentReports object
+     */
     public static void initReports()  {
         if(Objects.isNull(extentReports)) {
             extentReports = new ExtentReports();
@@ -34,6 +40,9 @@ public final class ExtentReport {
         }
     }
 
+    /**
+     * It flushes the report, unloads the extent report manager and opens the report in the default browser
+     */
     public static void flushReports() {
         if(Objects.nonNull(extentReports)) {
             extentReports.flush();
@@ -49,11 +58,21 @@ public final class ExtentReport {
 
 
     }
+    /**
+     * This function creates a test case in the extent report
+     *
+     * @param testcaseName The name of the test case.
+     */
     public static void createTest(String testcaseName){
           ExtentReportManager.setExtentTest(extentReports.createTest(testcaseName));
 
     }
 
+    /**
+     * It assigns the author name to the test case.
+     *
+     * @param authors String array of authors
+     */
     public static void addAuthor(String[] authors){
         for(String author:authors){
             ExtentReportManager.getExtentTest().assignAuthor(author);

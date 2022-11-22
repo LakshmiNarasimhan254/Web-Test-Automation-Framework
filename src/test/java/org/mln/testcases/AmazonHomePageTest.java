@@ -9,6 +9,10 @@ import org.testng.annotations.Test;
 
 import java.util.HashMap;
 
+/**
+ * This class is a test class that extends the BaseTest class and uses the AmazonHomePage class to verify the title of the
+ * Amazon Computers, Tablets  PC Products page
+ */
 public final class AmazonHomePageTest extends BaseTest{
 
       AmazonHomePage amazonHomePage= new AmazonHomePage();
@@ -17,6 +21,7 @@ public final class AmazonHomePageTest extends BaseTest{
       private  AmazonHomePageTest(){}
     @TestInfo(author = {"Lakshmi Mohan"},categories = {Categories.FUNCTIONAL,Categories.SMOKE})
     @Test
+    // This is a test method that is used to verify the title of the Amazon Computers, Tablets & PC Products page.
     public void verifyAmazonHamburgerSubMenuPageTitle(Integer runCount , HashMap<String,String> testdata) throws Exception {
         amazonComputersTabletsPCProductsPage =
                 (AmazonComputersTabletsPCProductsPage) amazonHomePage

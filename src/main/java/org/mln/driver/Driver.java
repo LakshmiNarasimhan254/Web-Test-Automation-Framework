@@ -9,12 +9,24 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.Objects;
 
+
+/**
+ * The Driver class is a utility class that initializes the WebDriver instance and quits the WebDriver instance
+ */
 public final class Driver {
 
 
     private Driver(){
     }
     private static WebDriver webDriver;
+
+
+
+    /**
+     * If the driver is not null, then set the driver to the browser specified in the parameter
+     *
+     * @param browser The browser to be used for the test.
+     */
     public static void initDriver(String browser){
         if (Objects.isNull(DriverManager.getDriver())) {
             if(browser.equalsIgnoreCase("CHROME")) {
@@ -31,6 +43,9 @@ public final class Driver {
 
         }
     }
+    /**
+     * If the driver is not null, then quit the driver and unload it
+     */
     public static void quitDriver(){
         if (Objects.nonNull(DriverManager.getDriver())) {
             DriverManager.getDriver().quit();

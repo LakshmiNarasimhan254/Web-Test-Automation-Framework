@@ -2,14 +2,13 @@ package org.mln.annotations;
 
 import org.mln.enums.Categories;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
+@Documented
+// An annotation.
 public @interface TestInfo {
 
      String[] author() default "";
