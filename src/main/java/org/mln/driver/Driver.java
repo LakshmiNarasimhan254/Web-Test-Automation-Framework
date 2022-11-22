@@ -1,12 +1,20 @@
 package org.mln.driver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.mln.constants.FrameworkConstants;
+import org.mln.customexceptions.BrowserInvocationFailedException;
+import org.mln.enums.BrowserTypes;
 import org.mln.enums.ConfigProperties;
+import org.mln.factory.DriverFactory;
 import org.mln.utils.PropertyUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Objects;
 
 
@@ -16,37 +24,34 @@ import java.util.Objects;
 public final class Driver {
 
 
-    private Driver(){
+    private Driver() {
     }
-    private static WebDriver webDriver;
+
 
 
 
     /**
      * If the driver is not null, then set the driver to the browser specified in the parameter
      *
-     * @param browser The browser to be used for the test.
+     * @param browser
+     *         The browser to be used for the test.
      */
-    public static void initDriver(String browser){
+    public static void initDriver(String browser) {
         if (Objects.isNull(DriverManager.getDriver())) {
-            if(browser.equalsIgnoreCase("CHROME")) {
-                System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromedriverPath());
-                webDriver = new ChromeDriver();
-            } else if (browser.equalsIgnoreCase("FIREFOX")) {
-                System.setProperty("webdriver.gecko.driver", FrameworkConstants.getGeckodriverpath());
-                webDriver = new FirefoxDriver();
+            try {
+                DriverManager.setDriver(DriverFactory.getDriver(browser));
+            } catch (MalformedURLException e) {
+                throw new BrowserInvocationFailedException(e.getCause());
             }
-
-            DriverManager.setDriver(webDriver);
-                DriverManager.getDriver().manage().window().maximize();
-                DriverManager.getDriver().get(PropertyUtil.getValue(ConfigProperties.URL));
-
+            DriverManager.getDriver().manage().window().maximize();
+            DriverManager.getDriver().get(PropertyUtil.getValue(ConfigProperties.URL));
         }
     }
+
     /**
      * If the driver is not null, then quit the driver and unload it
      */
-    public static void quitDriver(){
+    public static void quitDriver() {
         if (Objects.nonNull(DriverManager.getDriver())) {
             DriverManager.getDriver().quit();
             DriverManager.unLoad();
