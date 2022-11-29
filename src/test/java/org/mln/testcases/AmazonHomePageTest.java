@@ -22,7 +22,21 @@ public final class AmazonHomePageTest extends BaseTest{
     @TestInfo(author = {"Lakshmi Mohan"},categories = {Categories.FUNCTIONAL,Categories.SMOKE})
     @Test
     // This is a test method that is used to verify the title of the Amazon Computers, Tablets & PC Products page.
-    public void verifyAmazonHamburgerSubMenuPageTitle(Integer runCount , HashMap<String,String> testdata) throws Exception {
+    public void verifyAmazonHamburgerSubMenuPageTitle1(Integer runCount , HashMap<String,String> testdata) throws Exception {
+        amazonComputersTabletsPCProductsPage =
+                (AmazonComputersTabletsPCProductsPage) amazonHomePage
+                        .clickHamburgerMenu()
+                        .clickHamburgerMenuOptions(testdata.get("HamburgerMenuOption"))
+                        .clickHamburgerSubMenu(testdata.get("HamburgerSubMenu"));
+        Assertions.assertThat(
+                        amazonComputersTabletsPCProductsPage
+                                .getThisPageTitle())
+                .isEqualTo(testdata.get("ExpectedPageTitle"));
+    }
+    @TestInfo(author = {"Lakshmi Mohan"},categories = {Categories.FUNCTIONAL,Categories.SMOKE})
+    @Test
+    // This is a test method that is used to verify the title of the Amazon Computers, Tablets & PC Products page.
+    public void verifyAmazonHamburgerSubMenuPageTitle2(Integer runCount , HashMap<String,String> testdata) throws Exception {
         amazonComputersTabletsPCProductsPage =
                 (AmazonComputersTabletsPCProductsPage) amazonHomePage
                         .clickHamburgerMenu()

@@ -14,10 +14,10 @@ import org.openqa.selenium.By;
 public class AmazonHomePage extends BasePage {
 
 
-    private By linkHamburgerMenu = By.xpath("//span[text()=\'All\']/parent::a");
-    private String linkHamburgerMenuOptions = "//div[text()=\'%s\']/parent::a";
+    private By linkHamburgerMenu = By.xpath("//span[text()='All']/parent::a");
+    private String linkHamburgerMenuOptions = "//div[text()='%s']/parent::a";
     // A dynamic xpath.
-    private String linkHamburgerSubMenu = "//a[contains(text(),\'%s\')]";
+    private String linkHamburgerSubMenu = "//a[contains(text(),'%s')]";
     /**
      * This function clicks on the hamburger menu link on the Amazon home page
      *

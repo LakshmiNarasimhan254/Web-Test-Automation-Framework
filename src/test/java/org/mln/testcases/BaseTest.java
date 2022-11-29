@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -31,8 +32,7 @@ public class BaseTest {
     @BeforeMethod
     public void setUp(Object[] data,Method method) {
        Map<String,String> dataMap = (Map<String, String>) data[1];
-        System.out.println(dataMap.get("Browser"));
-       Driver.initDriver(dataMap.get("Browser"));
+       Driver.initDriver(dataMap.get("Browser"), dataMap.get("Version"));
     }
     /**
      * It closes the browser after each test.
