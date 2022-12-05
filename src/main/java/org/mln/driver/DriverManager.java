@@ -2,6 +2,8 @@ package org.mln.driver;
 
 import org.openqa.selenium.WebDriver;
 
+import java.util.Objects;
+
 /**
  * The DriverManager class is a singleton class that provides a single point of access to the WebDriver instance
  */
@@ -26,13 +28,16 @@ public final class DriverManager {
      *
      * @param driverRef This is the WebDriver object that you want to set.
      */
-    public static void setDriver(WebDriver driverRef){
-        tl.set(driverRef);
+    static void setDriver(WebDriver driverRef){
+        if (Objects.nonNull(driverRef)){
+            tl.set(driverRef);
+        }
+
     }
     /**
      * The function removes the current thread from the thread local variable
      */
-    public static void unLoad(){
+    static void unLoad(){
         tl.remove();
     }
 }

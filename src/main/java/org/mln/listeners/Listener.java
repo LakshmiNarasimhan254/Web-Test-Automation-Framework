@@ -4,6 +4,7 @@ package org.mln.listeners;
 import org.mln.annotations.TestInfo;
 import org.mln.reports.ExtentLogger;
 import org.mln.reports.ExtentReport;
+import org.mln.reports.KibanaReportLogger;
 import org.testng.*;
 
 import java.util.Arrays;
@@ -58,6 +59,14 @@ public class Listener implements ITestListener, ISuiteListener {
     // This method is called when a test is passed.
     public void onTestSuccess(ITestResult result) {
         ExtentLogger.pass(result.getMethod().getMethodName() + " is  Passed");
+        KibanaReportLogger.sendReportData(
+                result.getMethod().getMethodName(),
+                "pass",
+                result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestInfo.class).categories(),
+                result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestInfo.class).author(),
+                result.getEndMillis()-result.getStartMillis());
+
+
 
     }
 
@@ -66,6 +75,13 @@ public class Listener implements ITestListener, ISuiteListener {
     public void onTestFailure(ITestResult result) {
         ExtentLogger.fail(result.getMethod().getMethodName() + " is  Failed");
         ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace()));
+        KibanaReportLogger.sendReportData(
+                result.getMethod().getMethodName(),
+                "fail",
+                result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestInfo.class).categories(),
+                result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestInfo.class).author(),
+                result.getEndMillis()-result.getStartMillis());
+
     }
 
 
@@ -73,6 +89,12 @@ public class Listener implements ITestListener, ISuiteListener {
     // This method is called when a test is skipped.
     public void onTestSkipped(ITestResult result) {
         ExtentLogger.skip(result.getMethod().getMethodName() + " is  Skipped");
+        KibanaReportLogger.sendReportData(
+                result.getMethod().getMethodName(),
+                "skip",
+                result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestInfo.class).categories(),
+                result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestInfo.class).author(),
+                result.getEndMillis()-result.getStartMillis());
     }
 
     @Override

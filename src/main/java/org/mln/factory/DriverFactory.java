@@ -30,7 +30,7 @@ public final class DriverFactory {
                 DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                 desiredCapabilities.setBrowserName(BrowserType.CHROME);
                 desiredCapabilities.setVersion(version);
-                    webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), desiredCapabilities);
+                    webDriver = new RemoteWebDriver(new URL(PropertyUtil.getValue(ConfigProperties.GRIDURL)), desiredCapabilities);
             } else {
                 WebDriverManager.chromedriver().setup();
                 webDriver = new ChromeDriver();
@@ -40,7 +40,7 @@ public final class DriverFactory {
                 DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                 desiredCapabilities.setBrowserName(BrowserType.FIREFOX);
                 desiredCapabilities.setVersion(version);
-                    webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), desiredCapabilities);
+                    webDriver = new RemoteWebDriver(new URL(PropertyUtil.getValue(ConfigProperties.GRIDURL)), desiredCapabilities);
 
             } else {
                 WebDriverManager.firefoxdriver().setup();
@@ -51,7 +51,7 @@ public final class DriverFactory {
                 DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                 desiredCapabilities.setBrowserName(BrowserType.EDGE);
                 desiredCapabilities.setVersion(version);
-                webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), desiredCapabilities);
+                webDriver = new RemoteWebDriver(new URL(PropertyUtil.getValue(ConfigProperties.GRIDURL)) , desiredCapabilities);
 
             } else {
                 WebDriverManager.edgedriver().setup();

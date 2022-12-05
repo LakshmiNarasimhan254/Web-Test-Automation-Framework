@@ -3,6 +3,8 @@ package org.mln.reports;
 
 import com.aventstack.extentreports.ExtentTest;
 
+import java.util.Objects;
+
 
 /**
  * This class is used to store the ExtentTest object in a ThreadLocal variable
@@ -26,7 +28,9 @@ public class ExtentReportManager {
      * @param extentTest ExtentTest object
      */
     static void setExtentTest(ExtentTest extentTest){
-        tl.set(extentTest);
+        if(Objects.nonNull(extentTest)) {
+            tl.set(extentTest);
+        }
     }
     /**
      * > The function `unLoad()` removes the current thread from the `ThreadLocal` object `tl`

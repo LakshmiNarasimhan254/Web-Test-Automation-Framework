@@ -1,6 +1,7 @@
 package org.mln.constants;
 
 
+import lombok.Getter;
 import org.mln.enums.ConfigProperties;
 import org.mln.utils.PropertyUtil;
 
@@ -8,16 +9,24 @@ import org.mln.utils.PropertyUtil;
  * This class contains all the constants that are used in the framework
  */
 public final class FrameworkConstants {
+   @Getter
     private static final String TESTRESOURCEPATH = System.getProperty("user.dir") + "/src/test/resources/";
-   // private static final String CHROMEDRIVERPATH = TESTRESOURCEPATH + "executables/chromedriver.exe";
-    //private static final String GECKODRIVERPATH = TESTRESOURCEPATH + "executables/geckodriver.exe";
+    // private static final String CHROMEDRIVERPATH = TESTRESOURCEPATH + "executables/chromedriver.exe";
+     //private static final String GECKODRIVERPATH = TESTRESOURCEPATH + "executables/geckodriver.exe";
+   @Getter
     private static final String CONFIGPATH = TESTRESOURCEPATH + "config/config.properties";
+    @Getter
     private static final int EXPLICITWAITTIME = 10;
+    @Getter
     private static final String EXTENTREPORTFOLDERPATH = System.getProperty("user.dir") + "/extent-reports/";
 
+    @Getter
     private static final String EXCELPATH = TESTRESOURCEPATH+"excel/";
+    @Getter
     private static final String RUNMANAGERPATH =EXCELPATH +"TestInput.xlsx";
+    @Getter
     private static final String RUNMANAGERSHEET = "RunManager";
+    @Getter
     private static final String TESTDATASHEET = "TestData";
 
     private static String extenReportFilePath = "";
@@ -39,22 +48,6 @@ public final class FrameworkConstants {
     }
 
 
-    //getter method
-    public static String getTestResourcePath() {
-        return TESTRESOURCEPATH;
-    }
-   // public static String getChromedriverPath() { return CHROMEDRIVERPATH;}
-   // public static String getGeckodriverpath() { return GECKODRIVERPATH; }
-    public static String getConfigPath() {
-        return CONFIGPATH;
-    }
-    public static int getExplicitwaittime() {
-        return EXPLICITWAITTIME;
-    }
-    public static String getExcelpath(){return EXCELPATH;}
-    public static String getRunmanagerpath(){return RUNMANAGERPATH;}
-    public static String getRunmanagersheet(){return RUNMANAGERSHEET;}
-    public static String getTestdatasheet(){return TESTDATASHEET;}
 }
 
 
