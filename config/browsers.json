@@ -1,0 +1,59 @@
+{
+  "chrome": {
+    "default": "83.0",
+    "versions": {
+      "83.0": {
+        "image": "selenoid/vnc_chrome:83.0",
+        "port": "4444",
+        "path": "/",
+        "tmpfs": {
+          "/tmp": "size=128m"
+        }
+      },
+      "84.0": {
+        "image": "selenoid/vnc_chrome:84.0",
+        "port": "4444",
+        "path": "/",
+        "tmpfs": {
+          "/tmp": "size=128m"
+        }
+      }
+    }
+  },
+  "firefox": {
+    "default": "77.0",
+    "versions": {
+      "77.0": {
+        "image": "selenoid/vnc_firefox:77.0",
+        "port": "4444",
+        "path": "/wd/hub",
+        "tmpfs": {
+          "/tmp": "size=128m"
+        }
+      },
+      "78.0": {
+        "image": "selenoid/vnc_firefox:78.0",
+        "port": "4444",
+        "path": "/wd/hub",
+        "tmpfs": {
+          "/tmp": "size=128m"
+        }
+      }
+    }
+  },
+  "android": {
+    "default": "8.1",
+    "versions": {
+      "8.1": {
+        "image": "selenoid/android:8.1",
+        "port": "4444",
+        "path": "/wd/hub"
+      },
+      "9.0": {
+        "image": "selenoid/android:9.0",
+        "port": "4444",
+        "path": "/wd/hub"
+      }
+    }
+  }
+}

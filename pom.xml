@@ -1,107 +1,140 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.mln</groupId>
-  <artifactId>selenium-AFW</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+    <groupId>org.mln</groupId>
+    <artifactId>selenium-AFW</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-  <name>selenium-AFW</name>
-  <url>http://maven.apache.org</url>
+    <name>selenium-AFW</name>
+    <url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <testng.version>7.4.0</testng.version>
-    <selenium.version>3.141.59</selenium.version>
-    <assertj-core.version>3.23.1</assertj-core.version>
-    <assertj-joda-time.version>2.2.0</assertj-joda-time.version>
-    <joda-time.version>2.11.2</joda-time.version>
-    <apachepoi.version>5.2.2</apachepoi.version>
-    <apachepoi-ooxml.version>5.2.2</apachepoi-ooxml.version>
-    <commons-io.version>2.11.0</commons-io.version>
-    <extentreports.version>5.0.9</extentreports.version>
-    <webdrivermanager.version>5.3.1</webdrivermanager.version>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <testng.version>7.4.0</testng.version>
+        <selenium.version>3.141.59</selenium.version>
+        <assertj-core.version>3.23.1</assertj-core.version>
+        <assertj-joda-time.version>2.2.0</assertj-joda-time.version>
+        <joda-time.version>2.11.2</joda-time.version>
+        <apachepoi.version>5.2.2</apachepoi.version>
+        <apachepoi-ooxml.version>5.2.2</apachepoi-ooxml.version>
+        <commons-io.version>2.11.0</commons-io.version>
+        <extentreports.version>5.0.9</extentreports.version>
+        <webdrivermanager.version>5.3.1</webdrivermanager.version>
+        <restassured.version>5.1.1</restassured.version>
+        <lombok.version>1.18.12</lombok.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <surefire-Plugin.version>3.0.0-M7</surefire-Plugin.version>
+    </properties>
 
-  </properties>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.assertj/assertj-joda-time -->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-joda-time</artifactId>
+            <version>${assertj-joda-time.version}</version>
+            <scope>test</scope>
+        </dependency>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>${testng.version}</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>${selenium.version}</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.assertj/assertj-joda-time -->
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-joda-time</artifactId>
-      <version>${assertj-joda-time.version}</version>
-      <scope>test</scope>
-    </dependency>
+        <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${joda-time.version}</version>
+        </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>${assertj-core.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
-    <dependency>
-      <groupId>joda-time</groupId>
-      <artifactId>joda-time</artifactId>
-      <version>${joda-time.version}</version>
-    </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${apachepoi.version}</version>
+        </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-    <dependency>
-      <groupId>org.apache.poi</groupId>
-      <artifactId>poi</artifactId>
-      <version>${apachepoi.version}</version>
-    </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${apachepoi-ooxml.version}</version>
+        </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
-    <dependency>
-      <groupId>org.apache.poi</groupId>
-      <artifactId>poi-ooxml</artifactId>
-      <version>${apachepoi-ooxml.version}</version>
-    </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
 
-    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
-    <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-      <version>${commons-io.version}</version>
-    </dependency>
+        <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>${extentreports.version}</version>
+        </dependency>
 
-    <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
-    <dependency>
-      <groupId>com.aventstack</groupId>
-      <artifactId>extentreports</artifactId>
-      <version>${extentreports.version}</version>
-    </dependency>
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
 
-    <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
-    <dependency>
-      <groupId>io.github.bonigarcia</groupId>
-      <artifactId>webdrivermanager</artifactId>
-      <version>${webdrivermanager.version}</version>
-    </dependency>
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${restassured.version}</version>
+        </dependency>
 
 
-  </dependencies>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <!-- Used for json pojo deserailization  -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${surefire-Plugin.version}</version>
+                    <configuration>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>testng.xml</suiteXmlFile>
+                        </suiteXmlFiles>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

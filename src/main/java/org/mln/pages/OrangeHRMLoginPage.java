@@ -20,7 +20,7 @@ public class OrangeHRMLoginPage extends BasePage{
      * @return The page object itself.
      */
     public OrangeHRMLoginPage enterUserName(String userName) {
-        enterText(textboxusername,userName ,WaitConditions.VISIBLE,"UserName");
+        seleniumeInteractionsUtil.enterText(textboxusername,userName ,WaitConditions.VISIBLE,"UserName");
         return this;
     }
 
@@ -32,7 +32,7 @@ public class OrangeHRMLoginPage extends BasePage{
      * @return The page object itself.
      */
     public OrangeHRMLoginPage enterPassword(String passWord)  {
-        enterText(textboxpassword, DecodeUtil.base64Decode(passWord),WaitConditions.VISIBLE,"Password");
+        seleniumeInteractionsUtil.enterText(textboxpassword, DecodeUtil.base64Decode(passWord),WaitConditions.VISIBLE,"Password");
         return this;
     }
 
@@ -42,7 +42,7 @@ public class OrangeHRMLoginPage extends BasePage{
      * @return OrangeHRMHomePage
      */
     public final  OrangeHRMHomePage clickLogin()  {
-        click(buttonlogin, WaitConditions.CLICKABLE,"Login Button");
+        seleniumeInteractionsUtil.click(buttonlogin, WaitConditions.CLICKABLE,"Login Button");
 
         return new OrangeHRMHomePage();
     }
@@ -53,7 +53,7 @@ public class OrangeHRMLoginPage extends BasePage{
      * @return The title of the page.
      */
     public String getTitle(){
-        return getPageTitle();
+        return seleniumeInteractionsUtil.getPageTitle();
     }
 
 }

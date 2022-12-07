@@ -2,6 +2,7 @@ package org.mln.testcases;
 
 import org.assertj.core.api.Assertions;
 import org.mln.annotations.TestInfo;
+import org.mln.driver.DriverManager;
 import org.mln.enums.Categories;
 import org.mln.pages.AmazonComputersTabletsPCProductsPage;
 import org.mln.pages.AmazonHomePage;
@@ -28,6 +29,7 @@ public final class AmazonHomePageTest extends BaseTest{
                         .clickHamburgerMenu()
                         .clickHamburgerMenuOptions(testdata.get("HamburgerMenuOption"))
                         .clickHamburgerSubMenu(testdata.get("HamburgerSubMenu"));
+        System.out.println(DriverManager.getDriver().getTitle()+ "please help me");
         Assertions.assertThat(
                         amazonComputersTabletsPCProductsPage
                                 .getThisPageTitle())

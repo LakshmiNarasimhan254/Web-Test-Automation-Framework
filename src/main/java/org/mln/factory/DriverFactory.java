@@ -10,11 +10,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
-import java.net.MalformedURLException;
 import java.net.URL;
 
-import static org.openqa.selenium.remote.CapabilityType.BROWSER_NAME;
+
 
 /**
  * This class is used to create a driver object based on the browser type and runmode
@@ -30,6 +28,9 @@ public final class DriverFactory {
                 DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                 desiredCapabilities.setBrowserName(BrowserType.CHROME);
                 desiredCapabilities.setVersion(version);
+                desiredCapabilities.setCapability("enableVNC",true);
+                desiredCapabilities.setCapability("enableVideo",true);
+                desiredCapabilities.setCapability("videoName", browser+version+ System.currentTimeMillis()+".mp4");
                     webDriver = new RemoteWebDriver(new URL(PropertyUtil.getValue(ConfigProperties.GRIDURL)), desiredCapabilities);
             } else {
                 WebDriverManager.chromedriver().setup();
@@ -40,6 +41,9 @@ public final class DriverFactory {
                 DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                 desiredCapabilities.setBrowserName(BrowserType.FIREFOX);
                 desiredCapabilities.setVersion(version);
+                desiredCapabilities.setCapability("enableVNC",true);
+                desiredCapabilities.setCapability("enableVideo",true);
+                desiredCapabilities.setCapability("videoName",browser+version+ System.currentTimeMillis()+".mp4");
                     webDriver = new RemoteWebDriver(new URL(PropertyUtil.getValue(ConfigProperties.GRIDURL)), desiredCapabilities);
 
             } else {
@@ -51,6 +55,9 @@ public final class DriverFactory {
                 DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                 desiredCapabilities.setBrowserName(BrowserType.EDGE);
                 desiredCapabilities.setVersion(version);
+                desiredCapabilities.setCapability("enableVNC",true);
+                desiredCapabilities.setCapability("enableVideo",true);
+                desiredCapabilities.setCapability("videoName",browser+version+ System.currentTimeMillis()+".mp4");
                 webDriver = new RemoteWebDriver(new URL(PropertyUtil.getValue(ConfigProperties.GRIDURL)) , desiredCapabilities);
 
             } else {

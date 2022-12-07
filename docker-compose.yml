@@ -2,6 +2,7 @@ version: "3"
 services:
   chrome:
     image: selenium/node-chrome:4.6.0-20221104
+    container_name: chrome
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -9,9 +10,9 @@ services:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-
   edge:
     image: selenium/node-edge:4.6.0-20221104
+    container_name: edge
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -19,9 +20,9 @@ services:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-
   firefox:
     image: selenium/node-firefox:4.6.0-20221104
+    container_name: firefox
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -29,7 +30,6 @@ services:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-
   selenium-hub:
     image: selenium/hub:4.6.0-20221104
     container_name: selenium-hub
@@ -38,3 +38,21 @@ services:
       - "4442:4442"
       - "4443:4443"
       - "4444:4444"
+  elasticsearch:
+    image: elasticsearch:7.11.1
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+  kibana:
+    image: kibana:7.11.1
+    container_name: kibana
+    depends_on:
+      - elasticsearch
+    links:
+      - elasticsearch:elasticsearch
+    ports:
+      - "5601:5601"
+

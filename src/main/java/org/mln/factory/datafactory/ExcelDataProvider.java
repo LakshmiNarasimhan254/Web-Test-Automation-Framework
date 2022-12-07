@@ -29,8 +29,8 @@ public class ExcelDataProvider {
         if (actualExcelData.isEmpty()) {
             actualExcelData = ExcelUtil.
                     getExcelRowDataAsMapList(
-                            FrameworkConstants.getRunmanagerpath()
-                            ,FrameworkConstants.getTestdatasheet());
+                            FrameworkConstants.getRUNMANAGERPATH()
+                            ,FrameworkConstants.getTESTDATASHEET());
         }
         List<Map<String, String>> requiredExceldata = new ArrayList<>();
 

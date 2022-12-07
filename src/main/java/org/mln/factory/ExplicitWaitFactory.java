@@ -27,13 +27,13 @@ public class ExplicitWaitFactory {
     public static WebElement waitForElement(WaitConditions waitConditions, By by) {
         WebElement webElement =null;
         if (waitConditions.toString().equalsIgnoreCase("CLICKABLE")) {
-           webElement = new WebDriverWait(DriverManager.getDriver(), FrameworkConstants.getExplicitwaittime())
+           webElement = new WebDriverWait(DriverManager.getDriver(), FrameworkConstants.getEXPLICITWAITTIME())
                     .until(ExpectedConditions.elementToBeClickable(by));
         } else if (waitConditions.toString().equalsIgnoreCase("PRESENT")) {
-            webElement=new WebDriverWait(DriverManager.getDriver(), FrameworkConstants.getExplicitwaittime())
+            webElement=new WebDriverWait(DriverManager.getDriver(), FrameworkConstants.getEXPLICITWAITTIME())
                     .until(ExpectedConditions.presenceOfElementLocated(by));
         } else if (waitConditions.toString().equalsIgnoreCase("VISIBLE")) {
-            webElement= new WebDriverWait(DriverManager.getDriver(), FrameworkConstants.getExplicitwaittime())
+            webElement= new WebDriverWait(DriverManager.getDriver(), FrameworkConstants.getEXPLICITWAITTIME())
                     .until(ExpectedConditions.visibilityOfElementLocated(by));
         } else if (waitConditions.toString().equalsIgnoreCase("NONE")) {
             webElement =DriverManager.getDriver().findElement(by);

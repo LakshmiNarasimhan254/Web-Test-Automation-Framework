@@ -24,7 +24,8 @@ public class AmazonHomePage extends BasePage {
      * @return The AmazonHomePage object is being returned.
      */
     public AmazonHomePage clickHamburgerMenu() {
-        click(linkHamburgerMenu, WaitConditions.CLICKABLE, "ALL");
+        seleniumeInteractionsUtil.click(linkHamburgerMenu, WaitConditions.CLICKABLE, "ALL");
+
         return this;
     }
 
@@ -37,10 +38,10 @@ public class AmazonHomePage extends BasePage {
      */
     public AmazonHomePage clickHamburgerMenuOptions(String menuOptionsName) {
         String linkSeeAll = DynamicXPathUtil.getDynamicXpath(linkHamburgerMenuOptions, "see all");
-        if (isElementDisplayed(linkSeeAll)) {
-            click((By.xpath(linkSeeAll)), WaitConditions.CLICKABLE, "see all");
+        if (seleniumeInteractionsUtil.isElementDisplayed(linkSeeAll)) {
+            seleniumeInteractionsUtil.click((By.xpath(linkSeeAll)), WaitConditions.CLICKABLE, "see all");
         }
-        click(By.xpath(DynamicXPathUtil.getDynamicXpath(linkHamburgerMenuOptions, menuOptionsName)),
+        seleniumeInteractionsUtil.click(By.xpath(DynamicXPathUtil.getDynamicXpath(linkHamburgerMenuOptions, menuOptionsName)),
                 WaitConditions.CLICKABLE, menuOptionsName);
 
        return this;
@@ -52,7 +53,7 @@ public class AmazonHomePage extends BasePage {
      * @return The page object of the next page.
      */
     public Object clickHamburgerSubMenu(String subMenuName)  {
-           click(By.xpath(DynamicXPathUtil.getDynamicXpath(linkHamburgerSubMenu, subMenuName)),
+        seleniumeInteractionsUtil.click(By.xpath(DynamicXPathUtil.getDynamicXpath(linkHamburgerSubMenu, subMenuName)),
                 WaitConditions.CLICKABLE, subMenuName);
 
         if (subMenuName.contains("Tablets")){

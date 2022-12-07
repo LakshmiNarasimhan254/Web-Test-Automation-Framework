@@ -30,7 +30,7 @@ public class MethodInterceptor implements IMethodInterceptor {
     public List<IMethodInstance> intercept(List<IMethodInstance> methods, ITestContext context) {
         List<IMethodInstance>executionList = new ArrayList<>();
 
-            List<Map<String,String>> batchedata = ExcelUtil.getExcelRowDataAsMapList(FrameworkConstants.getRunmanagerpath(),FrameworkConstants.getRunmanagersheet());
+            List<Map<String,String>> batchedata = ExcelUtil.getExcelRowDataAsMapList(FrameworkConstants.getRUNMANAGERPATH(),FrameworkConstants.getRUNMANAGERSHEET());
             for(int methodIndex=0;methodIndex<methods.size();methodIndex++){
                 for (Map<String,String>bData: batchedata) {
                     if(bData.get("TestName").equalsIgnoreCase(methods.get(methodIndex).getMethod().getMethodName())&&

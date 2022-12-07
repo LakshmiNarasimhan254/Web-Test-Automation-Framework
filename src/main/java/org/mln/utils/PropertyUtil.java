@@ -27,7 +27,7 @@ public class PropertyUtil {
     }
 
     static {
-        try(FileInputStream fileInputStream = new FileInputStream(FrameworkConstants.getConfigPath())){
+        try(FileInputStream fileInputStream = new FileInputStream(FrameworkConstants.getCONFIGPATH())){
             properties.load(fileInputStream);
             properties.entrySet().forEach(entry->CONFIGMAP.put(String.valueOf(entry.getKey()).toLowerCase(),String.valueOf(entry.getValue()).trim()));
 
@@ -44,7 +44,7 @@ public class PropertyUtil {
          */
         public static String getValue(ConfigProperties key)  {
         if (Objects.isNull(CONFIGMAP.get(key.name().toLowerCase())) ||(Objects.isNull(CONFIGMAP.get(key.name().toLowerCase())))) {
-            throw new PropertyFileUsageException("Property Named " + key + " is not found.Please check in :"+ FrameworkConstants.getConfigPath() +".");
+            throw new PropertyFileUsageException("Property Named " + key + " is not found.Please check in :"+ FrameworkConstants.getCONFIGPATH() +".");
 
         }
         return CONFIGMAP.get(key.toString().toLowerCase());
