@@ -9,15 +9,6 @@ services:
     ports:
       - "4444:4444"
 
-  selenoid-ui:
-    image: aerokube/selenoid-ui
-    network_mode: bridge
-    links:
-      - selenoid:selenoid
-    ports:
-      - "8090:8080"
-    command: ["--selenoid-uri", "http://selenoid:4444"]
-
   elasticsearch:
     image: elasticsearch:7.11.1
     container_name: elasticsearch
