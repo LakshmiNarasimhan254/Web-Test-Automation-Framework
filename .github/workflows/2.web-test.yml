@@ -17,9 +17,10 @@ jobs:
 
 
       - name: Restore Docker image cache
-      - uses: satackey/action-docker-layer-caching@v0.0.11
-        # Ignore the failure of a step and avoid terminating the job.
+        uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
+
+
       - name: Start selenoid
         uses: n-ton4/selenoid-github-action@master
         id: start-selenoid
