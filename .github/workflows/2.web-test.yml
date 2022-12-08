@@ -1,0 +1,35 @@
+name: run web test in github actions
+
+on: workflow_dispatch
+jobs:
+  run-web-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Start selenoid
+        uses: n-ton4/selenoid-github-action@master
+        id: start-selenoid
+        continue-on-error: false
+        with:
+          version: 1.10.1
+          args: -limit 3
+          browsers: chrome
+          last-version: 84
+
+
+      - name: trigger the test
+        run:  mvn clean test
+
+      - name: Stop containers
+        if: always()
+        run: docker-compose -f "docker-compose-selenoid.yml" down
+
