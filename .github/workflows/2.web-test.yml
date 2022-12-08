@@ -35,6 +35,7 @@ jobs:
         uses: skjolber/maven-cache-github-action@v1
         with:
           step: restore
+          continue-on-error: true
 
 
       - name: trigger the test

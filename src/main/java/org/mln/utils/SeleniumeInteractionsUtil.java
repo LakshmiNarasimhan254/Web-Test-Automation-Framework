@@ -55,7 +55,7 @@ public class SeleniumeInteractionsUtil {
      * @return The title of the page.
      */
     public String getPageTitle() {
-        System.out.println(DriverManager.getDriver().getTitle() + "is the title");
+
         return DriverManager.getDriver().getTitle();
 
     }
