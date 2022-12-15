@@ -39,7 +39,7 @@ jobs:
 
 
       - name: trigger the test
-        run:  mvn clean test
+        run:  mvn clean test -e switch
 
       - name: Stop containers
         if: always()
