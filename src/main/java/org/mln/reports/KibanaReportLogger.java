@@ -59,8 +59,8 @@ public class KibanaReportLogger {
                     teststatus,
                     testCategory,
                     testAuthor,
-                    testExecutionTime));
-            Response response = requestSpecification.request(Method.POST, "");
+                    testExecutionTime)).request(Method.POST, "");
+
         }
 
 

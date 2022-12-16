@@ -29,7 +29,7 @@ public final class AmazonHomePageTest extends BaseTest{
                         .clickHamburgerMenu()
                         .clickHamburgerMenuOptions(testdata.get("HamburgerMenuOption"))
                         .clickHamburgerSubMenu(testdata.get("HamburgerSubMenu"));
-        System.out.println(DriverManager.getDriver().getTitle()+ "please help me");
+        //System.out.println(DriverManager.getDriver().getTitle()+ "please help me");
         Assertions.assertThat(
                         amazonComputersTabletsPCProductsPage
                                 .getThisPageTitle())

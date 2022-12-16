@@ -8,6 +8,6 @@ import java.util.Base64;
 public final class DecodeUtil {
     private DecodeUtil(){}
     public static String base64Decode(String encodedString){
-        return new String(Base64.getDecoder().decode(encodedString.getBytes()));
+        return String.valueOf((Base64.getDecoder().decode(encodedString.getBytes())));
     }
 }
