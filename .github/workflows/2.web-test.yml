@@ -33,13 +33,12 @@ jobs:
           
       - name: Restore Maven cache
         uses: skjolber/maven-cache-github-action@v1
+        continue-on-error: true
         with:
           step: restore
-          continue-on-error: true
-
 
       - name: trigger the test
-        run:  mvn clean test -e switch
+        run:  mvn clean test
 
       - name: Stop containers
         if: always()
