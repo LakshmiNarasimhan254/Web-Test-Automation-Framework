@@ -32,10 +32,10 @@ public final class DriverFactory {
             if (PropertyUtil.getValue(ConfigProperties.RUNMODE).equalsIgnoreCase(String.valueOf(RunModes.REMOTE))) {
                 DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                 desiredCapabilities.setBrowserName(BrowserType.CHROME);
-                //desiredCapabilities.setVersion(version);
+                desiredCapabilities.setVersion(version);
                 desiredCapabilities.setCapability(ENABLEVNC,true);
                 desiredCapabilities.setCapability(ENABLEVIDEO,false);
-               // desiredCapabilities.setCapability(VIDEONAME, browser+version+ System.currentTimeMillis()+".mp4");
+               desiredCapabilities.setCapability(VIDEONAME, browser+version+ System.currentTimeMillis()+".mp4");
                     webDriver = new RemoteWebDriver(new URL(PropertyUtil.getValue(ConfigProperties.GRIDURL)), desiredCapabilities);
             } else {
                 WebDriverManager.chromedriver().setup();
