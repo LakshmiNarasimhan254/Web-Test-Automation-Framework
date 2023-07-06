@@ -35,7 +35,7 @@ Please read the document for its features, capability and usage
     4.Naming convention for locators should be preceed link,txtbx,drpdn,txt,btn etc for better reability.
     5.Action should written as public method with web page interaction done only through seleniumeInteractionsUtil.The naming convention should 
       should be meaniful preferably with action followed by acted element (For ex: enterUsername)
-gi
+
 ## Adding more tests:
     Prerequisites: Java 8+, Maven 3.6.3 Installed and path set
     1.Tests should be added as per the convention followed. New testng tests should be created inside the src/test/java folder.
