@@ -1,9 +1,10 @@
-package org.mln.pages;
+package org.mln.pages.amazon;
 
 
 
 
 import org.mln.enums.WaitConditions;
+import org.mln.pages.BasePage;
 import org.mln.utils.DynamicXPathUtil;
 import org.openqa.selenium.By;
 
@@ -14,17 +15,17 @@ import org.openqa.selenium.By;
 public class AmazonHomePage extends BasePage {
 
 
-    private By linkHamburgerMenu = By.xpath("//span[text()='All']/parent::a");
-    private String linkHamburgerMenuOptions = "//div[text()='%s']/parent::a";
+    private By lnkHamburgerMenu = By.xpath("//span[text()='All']/parent::a");
+    private String lnkHamburgerMenuOptions = "//div[text()='%s']/parent::a";
     // A dynamic xpath.
-    private String linkHamburgerSubMenu = "//a[contains(text(),'%s')]";
+    private String lnkHamburgerSubMenu = "//a[contains(text(),'%s')]";
     /**
      * This function clicks on the hamburger menu link on the Amazon home page
      *
      * @return The AmazonHomePage object is being returned.
      */
     public AmazonHomePage clickHamburgerMenu() {
-        seleniumeInteractionsUtil.click(linkHamburgerMenu, WaitConditions.CLICKABLE, "ALL");
+        seleniumeInteractionsUtil.click(lnkHamburgerMenu, WaitConditions.CLICKABLE, "ALL");
 
         return this;
     }
@@ -37,11 +38,11 @@ public class AmazonHomePage extends BasePage {
      * @return The AmazonHomePage class is being returned.
      */
     public AmazonHomePage clickHamburgerMenuOptions(String menuOptionsName) {
-        String linkSeeAll = DynamicXPathUtil.getDynamicXpath(linkHamburgerMenuOptions, "see all");
+        String linkSeeAll = DynamicXPathUtil.getDynamicXpath(lnkHamburgerMenuOptions, "see all");
         if (seleniumeInteractionsUtil.isElementDisplayed(linkSeeAll)) {
             seleniumeInteractionsUtil.click((By.xpath(linkSeeAll)), WaitConditions.CLICKABLE, "see all");
         }
-        seleniumeInteractionsUtil.click(By.xpath(DynamicXPathUtil.getDynamicXpath(linkHamburgerMenuOptions, menuOptionsName)),
+        seleniumeInteractionsUtil.click(By.xpath(DynamicXPathUtil.getDynamicXpath(lnkHamburgerMenuOptions, menuOptionsName)),
                 WaitConditions.CLICKABLE, menuOptionsName);
 
        return this;
@@ -53,7 +54,7 @@ public class AmazonHomePage extends BasePage {
      * @return The page object of the next page.
      */
     public Object clickHamburgerSubMenu(String subMenuName)  {
-        seleniumeInteractionsUtil.click(By.xpath(DynamicXPathUtil.getDynamicXpath(linkHamburgerSubMenu, subMenuName)),
+        seleniumeInteractionsUtil.click(By.xpath(DynamicXPathUtil.getDynamicXpath(lnkHamburgerSubMenu, subMenuName)),
                 WaitConditions.CLICKABLE, subMenuName);
 
         if (subMenuName.contains("Tablets")){

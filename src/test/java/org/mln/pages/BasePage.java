@@ -8,5 +8,8 @@ import org.mln.utils.SeleniumeInteractionsUtil;
  * This class contains all the common methods that are used in the test scripts
  */
 public class BasePage {
-    SeleniumeInteractionsUtil seleniumeInteractionsUtil = new SeleniumeInteractionsUtil();
+    protected BasePage(){
+
+    }
+    public  SeleniumeInteractionsUtil seleniumeInteractionsUtil = new SeleniumeInteractionsUtil();
 }

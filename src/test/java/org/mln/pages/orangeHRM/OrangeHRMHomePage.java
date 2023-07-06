@@ -1,8 +1,9 @@
-package org.mln.pages;
+package org.mln.pages.orangeHRM;
 
 import org.mln.driver.DriverManager;
 import org.mln.enums.WaitConditions;;
 
+import org.mln.pages.BasePage;
 import org.openqa.selenium.By;
 
 /**
@@ -10,8 +11,8 @@ import org.openqa.selenium.By;
  * Logout link
  */
 public final class OrangeHRMHomePage extends BasePage {
-    private  final By linkwelcome = By.xpath("//i[@class =\'oxd-icon bi-caret-down-fill oxd-userdropdown-icon\']");
-    private  final By linklogout = By.xpath("//a[text()=\'Logout\']");
+    private  final By lnkwelcome = By.xpath("//i[@class =\'oxd-icon bi-caret-down-fill oxd-userdropdown-icon\']");
+    private  final By lnklogout = By.xpath("//a[text()=\'Logout\']");
 
     /**
      * Click the welcome link on the home page
@@ -19,7 +20,7 @@ public final class OrangeHRMHomePage extends BasePage {
      * @return The page object itself.
      */
     public OrangeHRMHomePage clickWelcome() {
-        seleniumeInteractionsUtil.click(linkwelcome, WaitConditions.PRESENT,"Welcome Link");
+        seleniumeInteractionsUtil.click(lnkwelcome, WaitConditions.PRESENT,"Welcome Link");
         return this;
     }
 
@@ -29,7 +30,7 @@ public final class OrangeHRMHomePage extends BasePage {
      * @return The OrangeHRMLoginPage class is being returned.
      */
     public OrangeHRMLoginPage clickLogout() {
-        seleniumeInteractionsUtil.click(linklogout, WaitConditions.CLICKABLE,"LogOut button");
+        seleniumeInteractionsUtil.click(lnklogout, WaitConditions.CLICKABLE,"LogOut button");
         return new OrangeHRMLoginPage();
     }
 

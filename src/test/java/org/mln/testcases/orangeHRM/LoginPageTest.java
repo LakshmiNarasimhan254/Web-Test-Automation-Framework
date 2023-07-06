@@ -1,9 +1,10 @@
-package org.mln.testcases;
+package org.mln.testcases.orangeHRM;
 
 
 import org.assertj.core.api.Assertions;
-import org.mln.pages.OrangeHRMHomePage;
-import org.mln.pages.OrangeHRMLoginPage;
+import org.mln.pages.orangeHRM.OrangeHRMHomePage;
+import org.mln.pages.orangeHRM.OrangeHRMLoginPage;
+import org.mln.testcases.BaseTest;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;

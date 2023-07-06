@@ -1,17 +1,18 @@
-package org.mln.pages;
+package org.mln.pages.orangeHRM;
 
 import org.mln.enums.WaitConditions;
+import org.mln.pages.BasePage;
 import org.mln.utils.DecodeUtil;
 import org.openqa.selenium.By;
 
 /**
  * It's a page object class that represents the login page of the OrangeHRM application
  */
-public class OrangeHRMLoginPage extends BasePage{
+public class OrangeHRMLoginPage extends BasePage {
 
-    private final By textboxusername = By.name("username");
-    private final By textboxpassword = By.xpath("//input[@name=\'password\' and @type=\'password\']");
-    private final By buttonlogin = By.xpath("//button[text()=\' Login \' and @type=\'submit\']");
+    private final By txtbxusername = By.name("username");
+    private final By txtbxpassword = By.xpath("//input[@name=\'password\' and @type=\'password\']");
+    private final By btnlogin = By.xpath("//button[text()=\' Login \' and @type=\'submit\']");
 
     /**
      * This function enters the user name in the user name text box
@@ -20,7 +21,7 @@ public class OrangeHRMLoginPage extends BasePage{
      * @return The page object itself.
      */
     public OrangeHRMLoginPage enterUserName(String userName) {
-        seleniumeInteractionsUtil.enterText(textboxusername,userName ,WaitConditions.VISIBLE,"UserName");
+        seleniumeInteractionsUtil.enterText(txtbxusername,userName ,WaitConditions.VISIBLE,"UserName");
         return this;
     }
 
@@ -32,7 +33,7 @@ public class OrangeHRMLoginPage extends BasePage{
      * @return The page object itself.
      */
     public OrangeHRMLoginPage enterPassword(String passWord)  {
-        seleniumeInteractionsUtil.enterText(textboxpassword, DecodeUtil.base64Decode(passWord),WaitConditions.VISIBLE,"Password");
+        seleniumeInteractionsUtil.enterText(txtbxpassword, DecodeUtil.base64Decode(passWord),WaitConditions.VISIBLE,"Password");
         return this;
     }
 
@@ -41,8 +42,8 @@ public class OrangeHRMLoginPage extends BasePage{
      *
      * @return OrangeHRMHomePage
      */
-    public final  OrangeHRMHomePage clickLogin()  {
-        seleniumeInteractionsUtil.click(buttonlogin, WaitConditions.CLICKABLE,"Login Button");
+    public final OrangeHRMHomePage clickLogin()  {
+        seleniumeInteractionsUtil.click(btnlogin, WaitConditions.CLICKABLE,"Login Button");
 
         return new OrangeHRMHomePage();
     }
