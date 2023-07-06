@@ -90,7 +90,7 @@ gi
     1.	I have not written any unit tests because all the methods are relatively small and static
     2.	I have performed sonar lint analysis to check the code quality.
     3.	Base image used in the docker file is customized from maven:3.6.3-jdk-8 where the maven dependencies are downloaded and kept handy to avoid downloading maven dependencies during each run.
-    4.	I have used amazon.com and OrangeHRM website for sample testcases and page objects
+    4.	I have used amazon.com,OrangeHRM.com,Automationexercise.com website for sample testcases and page objects
 
 ### Questions:
 For any further clarification - please reach out to Lakshminarasimhan254@gmail.com
