@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-12-19T16:03:00 EST" name="All Test Suite" finished-at="2022-12-19T16:03:16 EST" duration-ms="15531">
+    <groups>
+    </groups>
+    <test started-at="2022-12-19T16:03:00 EST" name="C:/Users/laksh/git/selenium-AFW" finished-at="2022-12-19T16:03:16 EST" duration-ms="15531">
+      <class name="org.mln.testcases.AmazonHomePageTest">
+        <test-method is-config="true" signature="setUp([Ljava.lang.Object;,java.lang.reflect.Method)[pri:0, instance:org.mln.testcases.AmazonHomePageTest@193f604a]" started-at="2022-12-19T16:03:01 EST" name="setUp" finished-at="2022-12-19T16:03:07 EST" duration-ms="6235" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Ljava.lang.Object;@4a8df3e2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void org.mln.testcases.AmazonHomePageTest.verifyAmazonHamburgerSubMenuPageTitle2(java.lang.Integer,java.util.HashMap) throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="setUp([Ljava.lang.Object;,java.lang.reflect.Method)[pri:0, instance:org.mln.testcases.AmazonHomePageTest@193f604a]" started-at="2022-12-19T16:03:01 EST" name="setUp" finished-at="2022-12-19T16:03:07 EST" duration-ms="6289" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Ljava.lang.Object;@3d98d138]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void org.mln.testcases.AmazonHomePageTest.verifyAmazonHamburgerSubMenuPageTitle1(java.lang.Integer,java.util.HashMap) throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="verifyAmazonHamburgerSubMenuPageTitle2(java.lang.Integer,java.util.HashMap)[pri:0, instance:org.mln.testcases.AmazonHomePageTest@193f604a]" started-at="2022-12-19T16:03:07 EST" name="verifyAmazonHamburgerSubMenuPageTitle2" data-provider="getExcelData" finished-at="2022-12-19T16:03:15 EST" duration-ms="7949" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[{TestName=verifyAmazonHamburgerSubMenuPageTitle2, UserName=, HamburgerMenuOption=Computers, Execute=Yes, Version=84.0, HamburgerSubMenu=Tablets, Browser=Chrome, Password=, ExpectedPageTitle=Amazon.com: Computers & Accessories: Electronics: Computer Accessories & Peripherals, Tablet Accessories & More}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAmazonHamburgerSubMenuPageTitle2 -->
+        <test-method signature="verifyAmazonHamburgerSubMenuPageTitle1(java.lang.Integer,java.util.HashMap)[pri:0, instance:org.mln.testcases.AmazonHomePageTest@193f604a]" started-at="2022-12-19T16:03:07 EST" name="verifyAmazonHamburgerSubMenuPageTitle1" data-provider="getExcelData" finished-at="2022-12-19T16:03:13 EST" duration-ms="5918" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[{TestName=verifyAmazonHamburgerSubMenuPageTitle1, UserName=, HamburgerMenuOption=Computers, Execute=Yes, Version=84.0, HamburgerSubMenu=Tablets, Browser=Chrome, Password=, ExpectedPageTitle=Amazon.com: Computers & Accessories: Electronics: Computer Accessories & Peripherals, Tablet Accessories & More}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAmazonHamburgerSubMenuPageTitle1 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.mln.testcases.AmazonHomePageTest@193f604a]" started-at="2022-12-19T16:03:14 EST" name="tearDown" finished-at="2022-12-19T16:03:14 EST" duration-ms="123" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.mln.testcases.AmazonHomePageTest@193f604a]" started-at="2022-12-19T16:03:15 EST" name="tearDown" finished-at="2022-12-19T16:03:16 EST" duration-ms="65" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- org.mln.testcases.AmazonHomePageTest -->
+    </test> <!-- C:/Users/laksh/git/selenium-AFW -->
+  </suite> <!-- All Test Suite -->
+</testng-results>
