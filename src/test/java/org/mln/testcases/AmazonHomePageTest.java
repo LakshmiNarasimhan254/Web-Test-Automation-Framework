@@ -2,7 +2,6 @@ package org.mln.testcases;
 
 import org.assertj.core.api.Assertions;
 import org.mln.annotations.TestInfo;
-import org.mln.driver.DriverManager;
 import org.mln.enums.Categories;
 import org.mln.pages.AmazonComputersTabletsPCProductsPage;
 import org.mln.pages.AmazonHomePage;
