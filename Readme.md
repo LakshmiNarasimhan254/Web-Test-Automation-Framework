@@ -1,7 +1,7 @@
-## Selenium Web Automation Framework
+##  Web Test Automation Framework -TestNG
 
 ## Description
-SWAF is an acronym for Selenium Web Automation framework using selenium-Java and TestNG Framework.
+Web Test Automation framework using selenium-Java and TestNG Framework.
 Please read the document for its features, capability and usage 
 
 ## Libraries Used:
