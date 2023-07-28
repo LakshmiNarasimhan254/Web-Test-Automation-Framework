@@ -74,7 +74,7 @@ public class Listener implements ITestListener, ISuiteListener {
     // This method is called when a test is failed.
     public void onTestFailure(ITestResult result) {
         ExtentLogger.fail(result.getMethod().getMethodName() + " is  Failed");
-        ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace()));
+        ExtentLogger.fail(result.getThrowable().getMessage());
         KibanaReportLogger.sendReportData(
                 result.getMethod().getMethodName(),
                 "fail",

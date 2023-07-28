@@ -34,38 +34,38 @@ public class SignUpPage extends BasePage {
     private By btnCreateAccount = By.xpath("//button[text()='Create Account']");
 
     public String getEnterAccountInformationText() {
-        return seleniumInteractions.getElementText(hdrEnterAccountInformation,WaitConditions.VISIBLE,"Enter Account Information Title");
+        return seleniumInteractionsUtil.getElementText(hdrEnterAccountInformation,WaitConditions.VISIBLE,"Enter Account Information Title");
     }
 
     public void chooseTitle(String title) {
         switch (title.toUpperCase().trim()) {
             case "MR":
-                seleniumInteractions.click(rdbtnMr,WaitConditions.CLICKABLE,"Title");
+                seleniumInteractionsUtil.click(rdbtnMr,WaitConditions.CLICKABLE,"Title");
                 break;
             case "MRS":
-                seleniumInteractions.click(rdbtnMrs,WaitConditions.CLICKABLE,"Title");
+                seleniumInteractionsUtil.click(rdbtnMrs,WaitConditions.CLICKABLE,"Title");
                 break;
             default:
-                seleniumInteractions.click(rdbtnMr,WaitConditions.CLICKABLE,"Title");
+                seleniumInteractionsUtil.click(rdbtnMr,WaitConditions.CLICKABLE,"Title");
                 break;
         }
     }
 
     public void enterName(String name) {
-        seleniumInteractions.enterText(txtbxName, name, WaitConditions.VISIBLE,"Name");
+        seleniumInteractionsUtil.enterText(txtbxName, name, WaitConditions.VISIBLE,"Name");
     }
 
     public void enterPassword(String password) {
-        seleniumInteractions.enterText(txtbxPassword, DecodeUtil.base64Decode(password),WaitConditions.VISIBLE,"Password");
+        seleniumInteractionsUtil.enterText(txtbxPassword, DecodeUtil.base64Decode(password),WaitConditions.VISIBLE,"Password");
     }
 
     public void enterDate(String date) {
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         try {
             Date localdate = formatter.parse(date);
-            seleniumInteractions.selectByIndex(drpdnDay, Integer.parseInt(new SimpleDateFormat("dd").format(localdate)),WaitConditions.CLICKABLE,"Day");
-            seleniumInteractions.selectByVisibleText(drpdbMonth, new SimpleDateFormat("MMMM").format(localdate),WaitConditions.CLICKABLE,"Day");
-            seleniumInteractions.selectByVisibleText(drpdnYear, new SimpleDateFormat("yyyy").format(localdate),WaitConditions.CLICKABLE,"Day");
+            seleniumInteractionsUtil.selectByIndex(drpdnDay, Integer.parseInt(new SimpleDateFormat("dd").format(localdate)),WaitConditions.CLICKABLE,"Day");
+            seleniumInteractionsUtil.selectByVisibleText(drpdbMonth, new SimpleDateFormat("MMMM").format(localdate),WaitConditions.CLICKABLE,"Day");
+            seleniumInteractionsUtil.selectByVisibleText(drpdnYear, new SimpleDateFormat("yyyy").format(localdate),WaitConditions.CLICKABLE,"Day");
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
@@ -73,55 +73,55 @@ public class SignUpPage extends BasePage {
     }
 
     public void checkSignUpForNewsLetter() {
-        seleniumInteractions.check(chkbxSignUpForNewsLetter,WaitConditions.CLICKABLE,"Sign up check box");
+        seleniumInteractionsUtil.check(chkbxSignUpForNewsLetter,WaitConditions.CLICKABLE,"Sign up check box");
     }
 
     public void chkbxReceiveSpecialOffers() {
-        seleniumInteractions.check(chkbxReceiveSpecialOffers,WaitConditions.CLICKABLE,"Receive Special check box");
+        seleniumInteractionsUtil.check(chkbxReceiveSpecialOffers,WaitConditions.CLICKABLE,"Receive Special check box");
     }
 
     public void enterFirstName(String name) {
-        seleniumInteractions.enterText(txtFirstName, name,WaitConditions.VISIBLE,"First Name");
+        seleniumInteractionsUtil.enterText(txtFirstName, name,WaitConditions.VISIBLE,"First Name");
     }
 
     public void enterLastName(String name) {
-        seleniumInteractions.enterText(txtLastName, name,WaitConditions.VISIBLE,"Last Name");
+        seleniumInteractionsUtil.enterText(txtLastName, name,WaitConditions.VISIBLE,"Last Name");
     }
 
     public void enterCompany(String companyName) {
-        seleniumInteractions.enterText(txtCompany, companyName, WaitConditions.VISIBLE,"Company Name");
+        seleniumInteractionsUtil.enterText(txtCompany, companyName, WaitConditions.VISIBLE,"Company Name");
     }
 
     public void enterAddressLine1(String addressLine) {
-        seleniumInteractions.enterText(txtAddress1, addressLine, WaitConditions.VISIBLE,"Address Line 1");
+        seleniumInteractionsUtil.enterText(txtAddress1, addressLine, WaitConditions.VISIBLE,"Address Line 1");
     }
 
     public void enterAddressLine2(String addressLine) {
-        seleniumInteractions.enterText(txtAddress2, addressLine, WaitConditions.VISIBLE,"Address Line 2");
+        seleniumInteractionsUtil.enterText(txtAddress2, addressLine, WaitConditions.VISIBLE,"Address Line 2");
     }
 
     public void selectCountry(String Country) {
-        seleniumInteractions.selectByValue(drpdncountry, Country,  WaitConditions.CLICKABLE,"Country");
+        seleniumInteractionsUtil.selectByValue(drpdncountry, Country,  WaitConditions.CLICKABLE,"Country");
     }
 
     public void enterState(String state) {
-        seleniumInteractions.enterText(txtState, state,WaitConditions.VISIBLE,"State");
+        seleniumInteractionsUtil.enterText(txtState, state,WaitConditions.VISIBLE,"State");
     }
 
     public void enterCity(String city) {
-        seleniumInteractions.enterText(txtCity, city,WaitConditions.VISIBLE,"City");
+        seleniumInteractionsUtil.enterText(txtCity, city,WaitConditions.VISIBLE,"City");
     }
 
     public void enterZipCode(String zipCode) {
-        seleniumInteractions.enterText(txtZipCode, zipCode,WaitConditions.VISIBLE,"Zipcode");
+        seleniumInteractionsUtil.enterText(txtZipCode, zipCode,WaitConditions.VISIBLE,"Zipcode");
     }
 
     public void enterMobileNumber(String mobileNumber) {
-        seleniumInteractions.enterText(txtMobileNumber, mobileNumber,WaitConditions.VISIBLE,"Mobile Number");
+        seleniumInteractionsUtil.enterText(txtMobileNumber, mobileNumber,WaitConditions.VISIBLE,"Mobile Number");
     }
 
     public void submitCreateAccount() {
-        seleniumInteractions.click(btnCreateAccount,WaitConditions.CLICKABLE,"Create Account button");
+        seleniumInteractionsUtil.click(btnCreateAccount,WaitConditions.CLICKABLE,"Create Account button");
     }
 
 }

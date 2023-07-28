@@ -8,12 +8,13 @@ import org.mln.reports.ExtentLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 
 /**
  * This class contains all the common methods that are used in the test scripts
  */
-public class SeleniumeInteractionsUtil {
+public class SeleniumInteractionsUtil {
 
     WebElement webElement = null;
     /**
@@ -72,6 +73,57 @@ public class SeleniumeInteractionsUtil {
         return DriverManager.getDriver().findElement(By.xpath(xpath)).isDisplayed();
     }
 
+
+    public void check(By by, WaitConditions waitConditions, String elementName) {
+
+        webElement = ExplicitWaitFactory.waitForElement(waitConditions, by);
+        highLighterMethod(webElement);
+        if (webElement.isSelected()) {
+
+        } else {
+            webElement.click();
+        }
+        ExtentLogger.pass(elementName + " is checked successfully");
+    }
+
+    public void unCheck(By by, WaitConditions waitConditions, String elementName) {
+        webElement = ExplicitWaitFactory.waitForElement(waitConditions, by);
+        highLighterMethod(webElement);
+        if (webElement.isSelected()) {
+            webElement.click();
+        } else {
+        }
+        ExtentLogger.pass(elementName + " is unchecked successfully");
+    }
+    public String getElementText(By by, WaitConditions waitConditions, String elementName) {
+        webElement = ExplicitWaitFactory.waitForElement(waitConditions, by);
+        highLighterMethod(webElement);
+        return DriverManager.getDriver().findElement(by).getText();
+    }
+
+    public void selectByIndex(By by, int index, WaitConditions waitConditions, String elementName) {
+        webElement = ExplicitWaitFactory.waitForElement(waitConditions, by);
+        highLighterMethod(webElement);
+        Select select = new Select(webElement);
+        select.selectByIndex(index);
+        ExtentLogger.pass(elementName +" is selected successfully");
+    }
+
+    public void selectByValue(By by, String value, WaitConditions waitConditions, String elementName) {
+        webElement = ExplicitWaitFactory.waitForElement(waitConditions, by);
+        highLighterMethod(webElement);
+        Select select = new Select(webElement);
+        select.selectByValue(value);
+        ExtentLogger.pass(elementName +" is selected successfully");
+    }
+
+    public void selectByVisibleText(By by, String visibleText, WaitConditions waitConditions, String elementName) {
+        webElement = ExplicitWaitFactory.waitForElement(waitConditions, by);
+        highLighterMethod(webElement);
+        Select select = new Select(webElement);
+        select.selectByVisibleText(visibleText);
+        ExtentLogger.pass(elementName +" is selected successfully");
+    }
 
     private void highLighterMethod(WebElement element){
         JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();

@@ -8,7 +8,7 @@ import org.mln.pages.BasePage;
 public class AmazonComputersTabletsPCProductsPage extends BasePage {
 
     public String getThisPageTitle(){
-        return seleniumeInteractionsUtil.getPageTitle();
+        return seleniumInteractionsUtil.getPageTitle();
     }
 
 }

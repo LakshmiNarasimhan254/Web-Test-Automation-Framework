@@ -13,16 +13,16 @@ public class SignUp_LoginPage extends BasePage {
     private By btnSignUp = By.xpath("//button[text()='Signup']");
 
     public String getheaderText(){
-        return seleniumInteractions.getElementText(hdrNewUserSignUp, WaitConditions.VISIBLE,"New User Signup Title");
+        return seleniumInteractionsUtil.getElementText(hdrNewUserSignUp, WaitConditions.VISIBLE,"New User Signup Title");
     }
     public void enterName(String name){
-        seleniumInteractions.enterText(txtbxName,name,WaitConditions.VISIBLE,"Name");
+        seleniumInteractionsUtil.enterText(txtbxName,name,WaitConditions.VISIBLE,"Name");
     }
     public void enterEmail(String email){
-        seleniumInteractions.enterText(txtbxEmail,email,WaitConditions.VISIBLE,"Email");
+        seleniumInteractionsUtil.enterText(txtbxEmail,email,WaitConditions.VISIBLE,"Email");
     }
     public void clickSignUp(){
-        seleniumInteractions.click(btnSignUp,WaitConditions.CLICKABLE,"Sign up Button");
+        seleniumInteractionsUtil.click(btnSignUp,WaitConditions.CLICKABLE,"Sign up Button");
     }
 
 }

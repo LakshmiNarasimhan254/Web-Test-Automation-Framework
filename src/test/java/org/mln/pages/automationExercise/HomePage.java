@@ -15,12 +15,12 @@ public class HomePage extends BasePage
         private By txtLoggedUser = By.xpath("//a[contains(text(),' Logged in as ')]/b");
 
         public void clickSignUp(){
-                seleniumInteractions.click(lnkSignup, WaitConditions.CLICKABLE,"Signup Link");
+                seleniumInteractionsUtil.click(lnkSignup, WaitConditions.CLICKABLE,"Signup Link");
         }
         public void clickDeleteAccount(){
-                seleniumInteractions.click(lnkDeleteAccount,WaitConditions.CLICKABLE,"Delete Account Link");
+                seleniumInteractionsUtil.click(lnkDeleteAccount,WaitConditions.CLICKABLE,"Delete Account Link");
         }
         public String getLoggedInUser(){
-                return seleniumInteractions.getElementText(txtLoggedUser,WaitConditions.VISIBLE,"Logged User");
+                return seleniumInteractionsUtil.getElementText(txtLoggedUser,WaitConditions.VISIBLE,"Logged User");
         }
 }

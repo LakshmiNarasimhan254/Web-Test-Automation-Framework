@@ -1,7 +1,8 @@
 package org.mln.pages;
 
 
-import org.mln.utils.SeleniumeInteractionsUtil;
+import org.mln.utils.SeleniumInteractionsUtil;
+
 
 
 /**
@@ -11,5 +12,5 @@ public class BasePage {
     protected BasePage(){
 
     }
-    public  SeleniumeInteractionsUtil seleniumeInteractionsUtil = new SeleniumeInteractionsUtil();
+    public SeleniumInteractionsUtil seleniumInteractionsUtil = new SeleniumInteractionsUtil();
 }

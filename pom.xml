@@ -14,6 +14,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <testng.version>7.4.0</testng.version>
         <selenium.version>3.141.59</selenium.version>
+        <cucumber.version>7.3.4</cucumber.version>
+        <cucumberJunit.version>7.3.4</cucumberJunit.version>
         <assertj-core.version>3.23.1</assertj-core.version>
         <assertj-joda-time.version>2.2.0</assertj-joda-time.version>
         <joda-time.version>2.11.2</joda-time.version>

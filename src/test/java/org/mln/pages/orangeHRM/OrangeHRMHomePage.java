@@ -20,7 +20,7 @@ public final class OrangeHRMHomePage extends BasePage {
      * @return The page object itself.
      */
     public OrangeHRMHomePage clickWelcome() {
-        seleniumeInteractionsUtil.click(lnkwelcome, WaitConditions.PRESENT,"Welcome Link");
+        seleniumInteractionsUtil.click(lnkwelcome, WaitConditions.PRESENT,"Welcome Link");
         return this;
     }
 
@@ -30,7 +30,7 @@ public final class OrangeHRMHomePage extends BasePage {
      * @return The OrangeHRMLoginPage class is being returned.
      */
     public OrangeHRMLoginPage clickLogout() {
-        seleniumeInteractionsUtil.click(lnklogout, WaitConditions.CLICKABLE,"LogOut button");
+        seleniumInteractionsUtil.click(lnklogout, WaitConditions.CLICKABLE,"LogOut button");
         return new OrangeHRMLoginPage();
     }
 

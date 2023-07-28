@@ -41,7 +41,8 @@ public class ExcelUtil {
         } catch (IOException e) {
             throw new FileIOException(excelFilePath+"/"+excelSheetName);
         } catch (Exception e) {
-            throw new CustomException(e.getMessage());
+            e.printStackTrace();
+
         }
         return excelData;
     }
